@@ -1,0 +1,51 @@
+/* Simple styles for the test project */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    "Helvetica Neue",
+    Arial;
+}
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #f6f9ff, #eef7f3);
+  color: #0b2545;
+}
+main {
+  background: white;
+  padding: 28px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(11, 37, 69, 0.08);
+  width: min(640px, 92%);
+  text-align: center;
+}
+button {
+  background: #ea00ff;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+button:hover {
+  filter: brightness(0.95);
+}
+ul {
+  list-style: inside none;
+  margin-top: 16px;
+  text-align: left;
+  padding-left: 0;
+}
+li {
+  padding: 6px 0;
+  border-bottom: 1px dashed #eef3fb;
+}
