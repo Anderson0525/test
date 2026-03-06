@@ -70,3 +70,25 @@ button:hover {
 }
 
 #message { margin-top: 15px; font-size: 14px; }
+/* Para que el cuerpo organice todo verticalmente */
+body {
+    display: flex;
+    flex-direction: column; /* Apila los elementos uno debajo de otro */
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+/* Estilo para el pie de página que va abajo */
+.site-footer {
+    margin-top: 20px; /* Separación de la tarjeta */
+    opacity: 0.7;     /* Un toque sutil para que no opaque al login */
+    font-size: 0.8rem;
+    color: white;
+}
+
+.site-footer h1 {
+    font-weight: 300;
+    margin: 0;
+}
