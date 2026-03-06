@@ -86,3 +86,20 @@ body {
     font-size: 0.9rem;
     text-align: center;
 }
+.btn-descarga {
+    display: block;        /* Para que ocupe todo el ancho */
+    width: 100%;           /* Ancho completo */
+    padding: 12px;
+    margin-top: 15px;      /* Espacio superior */
+    background-color: #3498db;
+    color: white;
+    text-align: center;
+    text-decoration: none; /* Quita el subrayado del link */
+    border-radius: 8px;
+    font-weight: bold;
+    box-sizing: border-box; /* Importante para que el padding no sume ancho extra */
+}
+
+.btn-descarga:hover {
+    background-color: #2980b9;
+}
