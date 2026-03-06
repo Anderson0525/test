@@ -1,22 +1,26 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="es">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Test Project</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles.css">
+    <title>Login con Imagen - Proyecto Charrata</title>
 </head>
 <body>
-  <header>
-    <h1>Proyecto charrata</h1>
-  </header>
-  <main>
-    <img src="asback.jpeg" alt="Mi imagen" class="img-izquierda">
-    <p id="message">Click the button to see JS in action.</p>
-    <p id="message">Click the button to see JS in action.</p>
-    <button id="actionBtn">Pri Pri</button>
-    <ul id="items"></ul>
-  </main>
-  <script src="script.js"></script>
+    <div class="login-card">
+        <img src="asback.jpeg" alt="Logo de Proyecto Charrata" class="login-logo">
+        
+        <h1>Bienvenido</h1>
+        <form id="loginForm">
+            <div class="input-group">
+                <input type="text" id="username" placeholder="Usuario" required>
+            </div>
+            <div class="input-group">
+                <input type="password" id="password" placeholder="Contraseña" required>
+            </div>
+            <button type="submit">Ingresar</button>
+        </form>
+        <p id="message"></p>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>

@@ -1,65 +1,72 @@
-/* Simple styles for the test project */
-html,
+/* --- Estilos base (ya vistos) --- */
 body {
-  height: 100%;
-  margin: 0;
-  font-family:
-    Inter,
-    system-ui,
-    -apple-system,
-    "Segoe UI",
-    Roboto,
-    "Helvetica Neue",
-    Arial;
-}
-body {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(135deg, #fff6f7, #f7eeef);
-  color: #0b2545;
-}
-main {
-  background: white;
-  padding: 28px;
-  border-radius: 12px;
-  box-shadow: 0 6px 18px rgba(11, 37, 69, 0.08);
-  width: min(640px, 92%);
-  text-align: center;
-}
-button {
-  background: #ea00ff;
-  color: white;
-  border: none;
-  padding: 100px 16px;
-  border-radius: 8px;
-  font-size: 16px;
-  cursor: pointer;
-}
-button:hover {
-  filter: brightness(0.95);
-}
-ul {
-  list-style: inside none;
-  margin-top: 16px;
-  text-align: left;
-  padding-left: 0;
-}
-li {
-  padding: 6px 0;
-  border-bottom: 1px dashed #eef3fb;
-}
-.img-izquierda {
-    float: left;        
-    width: 150px;       /* Un poco más pequeña para que quepa bien */
-    height: auto;
-    margin-right: 20px; 
-    border-radius: 8px; /* Le da un toque profesional con bordes redondeados */
+    background: linear-gradient(135deg, #0f0f0f, #2c3e50);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
 }
 
-/* IMPORTANTE: Esto evita que el botón se suba a la imagen */
-main::after {
-    content: "";
-    display: table;
-    clear: both;
+.login-card {
+    background: rgba(30, 30, 30, 0.8);
+    padding: 2.5rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    width: 320px;
+    text-align: center;
+    color: white;
 }
+
+/* --- ESTILOS ESPECÍFICOS PARA LA IMAGEN QUE AGREGASTE --- */
+.login-logo {
+    width: 100px; /* Tamaño controlado de la imagen */
+    height: 100px; /* Tamaño controlado */
+    object-fit: cover; /* Asegura que la imagen no se deforme al escalar */
+    border-radius: 50%; /* Opcional: hace la imagen circular */
+    border: 3px solid #3498db; /* Un borde para que resalte */
+    margin-bottom: 1.5rem; /* Separación con el título */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Sombra suave para la imagen */
+}
+
+/* --- Resto de estilos (ya vistos) --- */
+h1 { margin: 0 0 1.5rem 0; font-weight: 300; font-size: 24px; }
+
+input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    background: #333;
+    border: 1px solid #444;
+    border-radius: 8px;
+    color: white;
+    box-sizing: border-box;
+    transition: border 0.3s;
+}
+
+input:focus {
+    border-color: #3498db;
+    outline: none;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background: #3498db;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+button:hover {
+    background: #2980b9;
+}
+
+#message { margin-top: 15px; font-size: 14px; }
