@@ -1,6 +1,6 @@
 /* --- Estilos base (ya vistos) --- */
 body {
-    background: linear-gradient(135deg, #0f0f0f, #2c3e50);
+    background: linear-gradient(135deg, #808080, #2c3e50);
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -13,7 +13,7 @@ body {
     background: rgba(30, 30, 30, 0.8);
     padding: 2.5rem;
     border-radius: 15px;
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+    box-shadow: 0 8px 32px 0 rgba(107, 49, 49, 0.8);
     backdrop-filter: blur(10px);
     width: 320px;
     text-align: center;
@@ -22,13 +22,13 @@ body {
 
 /* --- ESTILOS ESPECÍFICOS PARA LA IMAGEN QUE AGREGASTE --- */
 .login-logo {
-    width: 100px; /* Tamaño controlado de la imagen */
-    height: 100px; /* Tamaño controlado */
+    width: 1000px; /* Tamaño controlado de la imagen */
+    height: 1000px; /* Tamaño controlado */
     object-fit: cover; /* Asegura que la imagen no se deforme al escalar */
     border-radius: 50%; /* Opcional: hace la imagen circular */
-    border: 3px solid #3498db; /* Un borde para que resalte */
+    border: 30px solid #db3434; /* Un borde para que resalte */
     margin-bottom: 1.5rem; /* Separación con el título */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Sombra suave para la imagen */
+    box-shadow: 0 4px 10px rgba(66, 2, 2, 0.5); /* Sombra suave para la imagen */
 }
 
 /* --- Resto de estilos (ya vistos) --- */
