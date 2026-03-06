@@ -49,3 +49,17 @@ li {
   padding: 6px 0;
   border-bottom: 1px dashed #eef3fb;
 }
+.img-izquierda {
+    float: left;        
+    width: 150px;       /* Un poco más pequeña para que quepa bien */
+    height: auto;
+    margin-right: 20px; 
+    border-radius: 8px; /* Le da un toque profesional con bordes redondeados */
+}
+
+/* IMPORTANTE: Esto evita que el botón se suba a la imagen */
+main::after {
+    content: "";
+    display: table;
+    clear: both;
+}
