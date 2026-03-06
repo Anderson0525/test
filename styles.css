@@ -22,11 +22,11 @@ body {
 
 /* --- ESTILOS ESPECÍFICOS PARA LA IMAGEN QUE AGREGASTE --- */
 .login-logo {
-    width: 1000px; /* Tamaño controlado de la imagen */
-    height: 1000px; /* Tamaño controlado */
+    width: 150px; /* Tamaño controlado de la imagen */
+    height: 150px; /* Tamaño controlado */
     object-fit: cover; /* Asegura que la imagen no se deforme al escalar */
     border-radius: 50%; /* Opcional: hace la imagen circular */
-    border: 30px solid #db3434; /* Un borde para que resalte */
+    border: 3px solid #130101; /* Un borde para que resalte */
     margin-bottom: 1.5rem; /* Separación con el título */
     box-shadow: 0 4px 10px rgba(66, 2, 2, 0.5); /* Sombra suave para la imagen */
 }
