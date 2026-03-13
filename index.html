@@ -2,32 +2,72 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nintendo Store - Clon</title>
     <link rel="stylesheet" href="styles.css">
-    <title>Proyecto Charrata</title>
 </head>
 <body>
-    <main>
-        <div class="login-card">
-            <img src="nintendo.png" alt="Logo" class="login-logo">
-            <h1>Hola, bienvenido a los mejores juegos </h1>
-            
-            <form id="loginForm">
-                <div class="input-group">
-                    <input type="text" id="username" placeholder="Usuario" required>
-                </div>
-                <div class="input-group">
-                    <input type="password" id="password" placeholder="Contraseña" required>
-                </div>
-                <button type="submit">Ingresar</button>
-            </form>
-            
-            <a href="https://github.com/Anderson0525/Praticas-VSCODE/archive/refs/heads/main.zip" 
-               class="btn-descarga" download="bono_meter.exe">
-               Descargar Proyecto
-            </a>
-            <p id="message"></p>
+
+    <header class="navbar">
+        <div class="logo">
+            <img src="nintendo.png" alt="Nintendo Logo">
         </div>
-    </main>
+        <div class="search-bar">
+            <input type="text" placeholder="Buscar juegos...">
+        </div>
+    </header>
+
+    <div class="container">
+        <aside class="sidebar">
+            <h3>Filtrar por</h3>
+            <div class="filter-group">
+                <h4>Género</h4>
+                <label><input type="checkbox"> Acción</label>
+                <label><input type="checkbox"> Aventura</label>
+                <label><input type="checkbox"> RPG</label>
+            </div>
+            <div class="filter-group">
+                <h4>Precio</h4>
+                <label><input type="checkbox"> Gratis</label>
+                <label><input type="checkbox"> Menos de COP 40.000</label>
+            </div>
+        </aside>
+
+        <main class="games-grid">
+            <div class="game-card">
+                <div class="image-container">
+                    <img src="asback.jpeg" alt="Juego">
+                </div>
+                <div class="game-info">
+                    <p class="platform">Nintendo Switch</p>
+                    <h2 class="game-title">Super Adventure Pro</h2>
+                    <p class="release-date">15/10/2023</p>
+                    <p class="price">COP 129.900</p>
+                    <div class="actions">
+                        <a href="#" class="btn-detail">Ver detalles</a>
+                        <a href="https://github.com/Anderson0525/Praticas-VSCODE/archive/refs/heads/main.zip" class="btn-buy">Descargar</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="game-card">
+                <div class="image-container">
+                    <img src="asback.jpeg" alt="Juego">
+                </div>
+                <div class="game-info">
+                    <p class="platform">Nintendo Switch</p>
+                    <h2 class="game-title">Charrata Quest</h2>
+                    <p class="release-date">20/01/2024</p>
+                    <p class="price">COP 99.000</p>
+                    <div class="actions">
+                        <a href="#" class="btn-detail">Ver detalles</a>
+                        <a href="#" class="btn-buy">Descargar</a>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
