@@ -1,105 +1,33 @@
-/* --- Estilos base (ya vistos) --- */
-body {
-    background: linear-gradient(135deg, #808080, #2c3e50);
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0;
-    font-family: 'Segoe UI', sans-serif;
+/* Asegura que el logo de Nintendo sea pequeño y decorativo */
+.nintendo-logo {
+    width: 80px; /* Ajusta según necesites */
+    margin-top: 20px;
+    opacity: 0.7; /* Un toque profesional y sutil */
+    transition: opacity 0.3s;
 }
 
-.login-card {
-    background: rgba(30, 30, 30, 0.8);
-    padding: 2.5rem;
-    border-radius: 15px;
-    box-shadow: 0 8px 32px 0 rgba(107, 49, 49, 0.8);
-    backdrop-filter: blur(10px);
-    width: 320px;
-    text-align: center;
-    color: white;
+.nintendo-logo:hover {
+    opacity: 1;
 }
 
-/* --- ESTILOS ESPECÍFICOS PARA LA IMAGEN QUE AGREGASTE --- */
-.login-logo {
-    width: 200px; /* Tamaño controlado de la imagen */
-    height: 200px; /* Tamaño controlado */
-    object-fit: cover; /* Asegura que la imagen no se deforme al escalar */
-    border-radius: 50%; /* Opcional: hace la imagen circular */
-    border: 3px solid #130101; /* Un borde para que resalte */
-    margin-bottom: 1.5rem; /* Separación con el título */
-    box-shadow: 0 4px 10px rgba(66, 2, 2, 0.5); /* Sombra suave para la imagen */
+/* Mejora el espaciado del botón */
+.download-section {
+    margin-top: 20px;
 }
 
-/* --- Resto de estilos (ya vistos) --- */
-h1 { margin: 0 0 1.5rem 0; font-weight: 300; font-size: 24px; }
-
-input {
-    width: 100%;
-    padding: 12px;
-    margin: 10px 0;
-    background: #333;
-    border: 1px solid #444;
-    border-radius: 8px;
-    color: white;
-    box-sizing: border-box;
-    transition: border 0.3s;
-}
-
-input:focus {
-    border-color: #3498db;
-    outline: none;
-}
-
-button {
-    width: 100%;
-    padding: 12px;
-    background: #3498db;
-    border: none;
-    border-radius: 8px;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-    margin-top: 10px;
-    font-weight: bold;
-}
-
-button:hover {
-    background: #2980b9;
-}
-
-#message { margin-top: 15px; font-size: 14px; }
-/* Para que el cuerpo organice todo verticalmente */
-body {
-    display: flex;
-    flex-direction: column; /* This is the key: it stacks elements */
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    margin: 0;
-    background-color: #333333; /* Your desired grey background */
-}
-.site-footer {
-    margin-top: 20px; /* Adds space between the card and the text */
-    color: white;
-    font-size: 0.9rem;
-    text-align: center;
-}
 .btn-descarga {
-    display: block;        /* Para que ocupe todo el ancho */
-    width: 100%;           /* Ancho completo */
+    display: block;
+    width: 100%;
     padding: 12px;
-    margin-top: 15px;      /* Espacio superior */
-    background-color: #3498db;
+    background-color: #27ae60; /* Verde para diferenciarlo del botón de login */
     color: white;
     text-align: center;
-    text-decoration: none; /* Quita el subrayado del link */
+    text-decoration: none;
     border-radius: 8px;
     font-weight: bold;
-    box-sizing: border-box; /* Importante para que el padding no sume ancho extra */
+    transition: background 0.3s;
 }
 
 .btn-descarga:hover {
-    background-color: #2980b9;
+    background-color: #219150;
 }

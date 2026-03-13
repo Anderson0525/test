@@ -2,47 +2,44 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <title>Login con Imagen - Proyecto Charrata</title>
+    <title>Acceso - juegos /title>
 </head>
 <body>
-    <header>
-        <nav>
-            <h1>Proyecto Charrata</h1>
-        </nav>
-    </header>
 
-    <main>
+    <main class="login-container">
         <div class="login-card">
-            <header>
-                <img src="asback.jpeg" alt="Logo de Proyecto Charrata" class="login-logo">
-                <h1>Hola, bienvenido</h1>
-                
-                <div class="login-card">
-                    <a href="https://github.com/Anderson0525/Praticas-VSCODE/archive/refs/heads/main.zip"
-                       class="btn-descarga"
-                       download="bono_meter.exe">
-                       Descargar Proyecto
-                    </a>
-                </div>
-            </header>
+            <img src="asback.jpeg" alt="Logo Principal" class="login-logo">
             
-            <section>
-                <form id="loginForm">
-                    <div class="input-group">
-                        <input type="text" id="username" placeholder="Usuario" required>
-                    </div>
-                    <div class="input-group">
-                        <input type="password" id="password" placeholder="Contraseña" required>
-                    </div>
-                    <button type="submit">Ingresar</button>
-                </form>
-            </section>          
+            <h1>Bienvenido al Sistema de juegos mas grande del mundo</h1>
+            
+            <form id="loginForm">
+                <div class="input-group">
+                    <input type="text" id="username" placeholder="Usuario" required>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="password" placeholder="Contraseña" required>
+                </div>
+                <button type="submit">Ingresar a la diversion</button>
+            </form>
+
+            <div class="download-section">
+                <a href="https://github.com/Anderson0525/Praticas-VSCODE/archive/refs/heads/main.zip" 
+                   class="btn-descarga">
+                   Descargar Paquete GRATIS
+                </a>
+            </div>
+
+            <div class="footer-image">
+                <img src="nintendo.png" alt="Sello de calidad" class="nintendo-logo">
+            </div>
+
+            <p id="message"></p>
         </div>
     </main>
-    
+
     <footer>
-        <p id="message"></p>
         <p>&copy; 2026 Proyecto Charrata</p>
     </footer>
 
