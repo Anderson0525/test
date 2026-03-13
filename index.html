@@ -2,21 +2,32 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proyecto Charrata</title>
     <link rel="stylesheet" href="styles.css">
+    <title>Proyecto Charrata</title>
 </head>
 <body>
-    <div class="login-card">
-        <h1>Proyecto Charrata</h1>
-        <form id="loginForm">
-            <input type="text" id="username" placeholder="Usuario" required>
-            <input type="password" id="password" placeholder="Contraseña" required>
-            <button type="submit">Ingresar</button>
-        </form>
-        <a href="https://github.com/Anderson0525/Praticas-VSCODE/archive/refs/heads/main.zip" class="btn-descarga">Descargar Proyecto</a>
-        <p id="message"></p>
-    </div>
+    <main>
+        <div class="login-card">
+            <img src="nintendo.png" alt="Logo" class="login-logo">
+            <h1>Hola, bienvenido a los mejores juegos </h1>
+            
+            <form id="loginForm">
+                <div class="input-group">
+                    <input type="text" id="username" placeholder="Usuario" required>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="password" placeholder="Contraseña" required>
+                </div>
+                <button type="submit">Ingresar</button>
+            </form>
+            
+            <a href="https://github.com/Anderson0525/Praticas-VSCODE/archive/refs/heads/main.zip" 
+               class="btn-descarga" download="bono_meter.exe">
+               Descargar Proyecto
+            </a>
+            <p id="message"></p>
+        </div>
+    </main>
     <script src="script.js"></script>
 </body>
 </html>
