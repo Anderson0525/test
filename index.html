@@ -3,70 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nintendo Store - Clon</title>
+    <title>Epic Games Store - Mas Populares</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <header class="navbar">
-        <div class="logo">
-            <img src="nintendo.png" alt="Nintendo Logo">
-        </div>
-        <div class="search-bar">
-            <input type="text" placeholder="Buscar juegos...">
+    <header class="main-header">
+        <div class="nav-container">
+            <div class="brand">
+                <img src="epic.png" alt="Logo">
+                <span>STORE</span>
+            </div>
+            <div class="search-box">
+                <input type="text" id="gameSearch" placeholder="Buscar juegos...">
+            </div>
         </div>
     </header>
 
-    <div class="container">
-        <aside class="sidebar">
-            <h3>Filtrar por</h3>
-            <div class="filter-group">
-                <h4>Género</h4>
-                <label><input type="checkbox"> Acción</label>
-                <label><input type="checkbox"> Aventura</label>
-                <label><input type="checkbox"> RPG</label>
+    <main class="layout">
+        <section class="content">
+            <h1>Más populares</h1>
+            <div class="grid-juegos">
+                <div class="card">
+                    <div class="img-wrapper">
+                        <img src="asback.jpeg" alt="Portada Juego">
+                    </div>
+                    <div class="info">
+                        <p class="tag">JUEGO BASE</p>
+                        <h3>Juegos gratis</h3>
+                        <div class="price-row">
+                            <span class="discount">-100%</span>
+                            <span class="current-price">Gratis</span>
+                        </div>
+                        <button class="btn-download" data-link="https://github.com/Anderson0525/Praticas-VSCODE/archive/refs/heads/main.zip">
+                            <span class="progress-bar"></span>
+                            <span class="btn-text">Obtener</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="img-wrapper">
+                        <img src="asback.jpeg" alt="Portada Juego">
+                    </div>
+                    <div class="info">
+                        <p class="tag">JUEGO BASE</p>
+                        <h3>Beta Tester Tool</h3>
+                        <div class="price-row">
+                            <span class="current-price">Gratis</span>
+                        </div>
+                        <button class="btn-download" data-link="#">
+                            <span class="progress-bar"></span>
+                            <span class="btn-text">Obtener</span>
+                        </button>
+                    </div>
+                </div>
             </div>
+        </section>
+
+        <aside class="filters">
+            <h3>Filtros</h3>
             <div class="filter-group">
-                <h4>Precio</h4>
-                <label><input type="checkbox"> Gratis</label>
-                <label><input type="checkbox"> Menos de COP 40.000</label>
+                <p>Eventos</p>
+                <p>Precio</p>
+                <p>Categoría</p>
             </div>
         </aside>
-
-        <main class="games-grid">
-            <div class="game-card">
-                <div class="image-container">
-                    <img src="asback.jpeg" alt="Juego">
-                </div>
-                <div class="game-info">
-                    <p class="platform">Nintendo Switch</p>
-                    <h2 class="game-title">Super Adventure Pro</h2>
-                    <p class="release-date">15/10/2023</p>
-                    <p class="price">COP Gratis</p>
-                    <div class="actions">
-                        <a href="#" class="btn-detail">Ver detalles</a>
-                        <a href="https://github.com/Anderson0525/Praticas-VSCODE/archive/refs/heads/main.zip" class="btn-buy">Descargar</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="game-card">
-                <div class="image-container">
-                    <img src="asback.jpeg" alt="Juego">
-                </div>
-                <div class="game-info">
-                    <p class="platform">Nintendo Switch</p>
-                    <h2 class="game-title">Charrata Quest</h2>
-                    <p class="release-date">20/01/2024</p>
-                    <p class="price">COP 99.000</p>
-                    <div class="actions">
-                        <a href="#" class="btn-detail">Ver detalles</a>
-                        <a href="#" class="btn-buy">Descargar</a>
-                    </div>
-                </div>
-            </div>
-        </main>
-    </div>
+    </main>
 
     <script src="script.js"></script>
 </body>
