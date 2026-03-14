@@ -1,107 +1,137 @@
 :root {
-    --epic-black: #121212;
-    --epic-grey: #2a2a2a;
-    --epic-blue: #0078f2;
-    --text-white: #f5f5f5;
-    --text-grey: #b5b5b5;
+    --nintendo-red: #E60012;
+    --bg-light: #F8F8F8;
+    --text-dark: #484848;
 }
 
 body {
-    background-color: var(--epic-black);
-    color: var(--text-white);
     margin: 0;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
 }
 
-.main-header {
-    background-color: var(--epic-grey);
-    padding: 15px 5%;
-}
-
-.nav-container {
+/* Navbar */
+.navbar {
+    background-color: white;
+    padding: 1rem 5%;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    border-bottom: 1px solid #ddd;
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
-.brand img { height: 30px; margin-right: 10px; }
-.brand { display: flex; align-items: center; font-weight: bold; }
+.logo img {
+    height: 40px;
+    margin-right: 2rem;
+}
 
-.search-box input {
-    background: #333;
-    border: none;
+.search-bar input {
     padding: 10px 20px;
     border-radius: 20px;
-    color: white;
+    border: 1px solid #ccc;
+    width: 300px;
+}
+
+/* Layout Principal */
+.container {
+    display: flex;
+    padding: 2rem 5%;
+}
+
+/* Sidebar */
+.sidebar {
     width: 250px;
+    padding-right: 2rem;
 }
 
-.layout {
+.filter-group {
+    margin-bottom: 1.5rem;
+}
+
+.filter-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+/* Grid de Juegos */
+.games-grid {
+    flex: 1;
     display: grid;
-    grid-template-columns: 1fr 250px;
-    padding: 40px 5%;
-    gap: 40px;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 2rem;
 }
 
-.grid-juegos {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 25px;
-}
-
-/* Tarjetas */
-.card {
-    background: transparent;
+.game-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
     transition: transform 0.2s;
 }
 
-.img-wrapper {
-    width: 100%;
-    aspect-ratio: 3/4;
-    border-radius: 8px;
-    overflow: hidden;
-    margin-bottom: 10px;
+.game-card:hover {
+    transform: translateY(-5px);
 }
 
-.img-wrapper img {
-    width: 100%; height: 100%; object-fit: cover;
+.image-container img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
 }
 
-.info h3 { font-size: 16px; margin: 5px 0; }
-.tag { font-size: 10px; color: var(--text-grey); margin: 0; }
-.price-row { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
-.discount { background: var(--epic-blue); padding: 2px 5px; border-radius: 4px; font-size: 12px; }
+.game-info {
+    padding: 1.2rem;
+}
 
-/* Botón con Progreso */
-.btn-download {
-    position: relative;
-    width: 100%;
-    padding: 12px;
-    background: #404040;
-    border: none;
-    border-radius: 4px;
-    color: white;
+.platform {
+    font-size: 12px;
+    color: #888;
+    margin: 0;
+}
+
+.game-title {
+    font-size: 18px;
+    margin: 5px 0;
+    color: #222;
+}
+
+.release-date {
+    font-size: 13px;
+    color: #666;
+}
+
+.price {
     font-weight: bold;
-    text-transform: uppercase;
-    cursor: pointer;
-    overflow: hidden; /* Importante para que la barra no se salga */
+    font-size: 16px;
+    margin: 15px 0;
 }
 
-.btn-text {
-    position: relative;
-    z-index: 2; /* Texto por encima de la barra */
+/* Botones */
+.actions {
+    display: flex;
+    gap: 10px;
 }
 
-.progress-bar {
-    position: absolute;
-    top: 0; left: 0;
-    height: 100%;
-    width: 0%; /* Empieza en 0 */
-    background: var(--epic-blue);
-    z-index: 1;
-    transition: width 0.1s linear; /* Animación fluida */
+.btn-detail, .btn-buy {
+    flex: 1;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: bold;
 }
 
-.filters h3 { border-bottom: 1px solid #333; padding-bottom: 10px; }
-.filter-group p { color: var(--text-grey); cursor: pointer; padding: 5px 0; }
-.filter-group p:hover { color: white; }
+.btn-detail {
+    background: #eee;
+    color: #444;
+}
+
+.btn-buy {
+    background: var(--nintendo-red);
+    color: white;
+}
