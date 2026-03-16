@@ -79,7 +79,7 @@ const gamesData = {
             price: 14.99, 
             discount: 75, 
             originalPrice: 59.99, 
-            image: "imagenes/imagenes/assassin.png",
+            image: "imagenes/assassin.png",
             freeDownload: false
         }
     ],
