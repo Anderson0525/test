@@ -17,7 +17,7 @@ const gamesData = {
             developer: "FromSoftware", 
             price: 59.99, 
             discount: 20, 
-            image: "nintendo.png",
+            image: "elden ring.png",
             freeDownload: false
         },
         { 
