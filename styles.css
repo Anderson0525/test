@@ -1,4 +1,4 @@
-* {
+ {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -212,37 +212,24 @@ body {
     height: 500px;
     border-radius: 12px;
     overflow: hidden;
-    background: #1a1a1a;
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
 }
 
 .carousel-slide {
     position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
     display: flex;
     align-items: flex-end;
     padding: 48px;
+    background-size: cover;
+    background-position: center;
     opacity: 0;
-    transition: opacity 0.5s ease;
-    overflow: hidden;
+    transition: opacity 0.5s;
 }
 
 .carousel-slide.active {
     opacity: 1;
-}
-
-.slide-background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-size: cover !important;
-    background-position: center center !important;
-    background-repeat: no-repeat !important;
-    z-index: 0;
 }
 
 .carousel-slide::before {
@@ -252,14 +239,13 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(to right, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.6) 30%, rgba(0,0,0,0.2) 60%, transparent 100%);
-    z-index: 1;
+    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.3) 50%, transparent 100%);
 }
 
 .carousel-content {
     position: relative;
     z-index: 2;
-    max-width: 500px;
+    max-width: 600px;
 }
 
 .carousel-tag {
@@ -296,7 +282,6 @@ body {
 .carousel-buttons {
     display: flex;
     gap: 12px;
-    flex-wrap: wrap;
 }
 
 .btn-large {
@@ -336,6 +321,7 @@ body {
     gap: 32px;
 }
 
+/* Sidebar */
 .sidebar {
     position: sticky;
     top: 88px;
@@ -385,6 +371,7 @@ body {
     font-size: 12px;
 }
 
+/* Content Grid */
 .content-section {
     margin-bottom: 48px;
 }
@@ -449,14 +436,15 @@ body {
     transition: transform 0.3s ease;
 }
 
-.game-image[src*="nintendo.png"] {
+.game-card:hover .game-image {
+    transform: scale(1.05);
+}
+
+/* Solo nintendo.png tiene fondo especial */
+.game-image[src="nintendo.png"] {
     object-fit: contain;
     padding: 20px;
     background: linear-gradient(135deg, #e60012 0%, #8b0000 100%);
-}
-
-.game-card:hover .game-image {
-    transform: scale(1.05);
 }
 
 .game-info {
@@ -511,6 +499,7 @@ body {
     font-weight: bold;
 }
 
+/* Botón Descarga Gratis */
 .btn-free-download {
     width: 100%;
     margin-top: 8px;
@@ -530,7 +519,9 @@ body {
     background-color: #008f5a;
 }
 
-/* Responsive */
+/* ============================================
+   RESPONSIVE - TABLET
+   ============================================ */
 @media (max-width: 1024px) {
     .main-container {
         grid-template-columns: 1fr;
@@ -545,7 +536,7 @@ body {
     }
     
     .carousel-title {
-        font-size: 36px;
+        font-size: 32px;
     }
     
     .games-grid {
@@ -553,6 +544,9 @@ body {
     }
 }
 
+/* ============================================
+   RESPONSIVE - MÓVIL
+   ============================================ */
 @media (max-width: 768px) {
     .header {
         height: 56px;
@@ -576,35 +570,19 @@ body {
     }
     
     .hero-carousel {
-        height: 350px;
+        height: 300px;
     }
     
-    .carousel-slide {
+    .carousel-content {
         padding: 24px;
     }
     
     .carousel-title {
-        font-size: 28px;
+        font-size: 24px;
     }
     
     .carousel-desc {
         font-size: 14px;
-    }
-    
-    .carousel-buttons {
-        flex-direction: column;
-        gap: 8px;
-    }
-    
-    .btn-large {
-        width: 100%;
-        padding: 10px 16px;
-        font-size: 14px;
-    }
-    
-    .carousel-nav {
-        right: 24px;
-        bottom: 16px;
     }
     
     .games-grid {
@@ -622,6 +600,7 @@ body {
     }
 }
 
+/* Animations */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
