@@ -17,7 +17,7 @@ const gamesData = {
             developer: "FromSoftware", 
             price: 59.99, 
             discount: 20, 
-            image: "asback.png",
+            image: "nintendo.png",
             freeDownload: false
         },
         { 
@@ -25,7 +25,7 @@ const gamesData = {
             developer: "CD Projekt Red", 
             price: 59.99, 
             discount: 50, 
-            image: "asback.png",
+            image: "nintendo.png",
             freeDownload: false
         },
         { 
@@ -71,7 +71,7 @@ const gamesData = {
             discount: null, 
             originalPrice: 29.99, 
             image: "nintendo.png",
-            freeDownload: true  // ← Descarga Gratis
+            freeDownload: true
         },
         { 
             title: "Assassin's Creed Valhalla", 
@@ -90,7 +90,7 @@ const gamesData = {
             price: 0, 
             discount: null, 
             image: "nintendo.png",
-            freeDownload: true  // ← Descarga Gratis
+            freeDownload: true
         },
         { 
             title: "Rocket League", 
@@ -98,7 +98,7 @@ const gamesData = {
             price: 0, 
             discount: null, 
             image: "nintendo.png",
-            freeDownload: true  // ← Descarga Gratis
+            freeDownload: true
         },
         { 
             title: "Genshin Impact", 
@@ -106,7 +106,7 @@ const gamesData = {
             price: 0, 
             discount: null, 
             image: "nintendo.png",
-            freeDownload: true  // ← Descarga Gratis
+            freeDownload: true
         },
         { 
             title: "Apex Legends", 
@@ -114,7 +114,7 @@ const gamesData = {
             price: 0, 
             discount: null, 
             image: "nintendo.png",
-            freeDownload: true  // ← Descarga Gratis
+            freeDownload: true
         }
     ]
 };
@@ -124,7 +124,6 @@ function createGameCard(game) {
     const hasDiscount = game.discount !== null && game.discount > 0;
     const finalPrice = hasDiscount ? (game.price * (1 - game.discount / 100)).toFixed(2) : game.price;
     
-    // Botón de descarga gratis si aplica
     const freeDownloadBtn = game.freeDownload ? 
         `<button class="btn-free-download" onclick="window.location.href='${DOWNLOAD_URL}'">Descarga Gratis</button>` : '';
     
@@ -174,19 +173,14 @@ function nextSlide() {
     goToSlide(next);
 }
 
-// Auto-play carrusel
 setInterval(nextSlide, 5000);
 
-// ============================================
-// BOTÓN DESCARGAR PRINCIPAL (Header)
-// ============================================
+// Botón Descargar principal
 document.getElementById('downloadBtn').addEventListener('click', function() {
     window.location.href = DOWNLOAD_URL;
 });
 
-// ============================================
-// BOTONES DESCARGA GRATIS (Hero Carousel)
-// ============================================
+// Botones Descarga Gratis en hero
 document.querySelectorAll('.free-download-btn').forEach(btn => {
     btn.addEventListener('click', function() {
         window.location.href = DOWNLOAD_URL;
@@ -196,7 +190,7 @@ document.querySelectorAll('.free-download-btn').forEach(btn => {
 // Inicializar
 renderGames();
 
-// Efectos hover para las tarjetas
+// Efectos hover
 document.addEventListener('DOMContentLoaded', () => {
     const cards = document.querySelectorAll('.game-card');
     cards.forEach(card => {
@@ -209,7 +203,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Búsqueda funcional
+// Búsqueda
 document.querySelector('.search-box input').addEventListener('input', function(e) {
     const searchTerm = e.target.value.toLowerCase();
     const allCards = document.querySelectorAll('.game-card');
