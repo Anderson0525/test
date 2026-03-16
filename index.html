@@ -3,71 +3,791 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nintendo Store - Clon</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Epic Games Store</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #121212;
+            --bg-secondary: #1a1a1a;
+            --bg-card: #202020;
+            --text-primary: #ffffff;
+            --text-secondary: #cccccc;
+            --accent-blue: #0074e4;
+            --accent-green: #00a86b;
+            --discount-bg: #0074e4;
+            --hover-bg: #2a2a2a;
+            --border-color: #333333;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        .header {
+            background-color: var(--bg-secondary);
+            padding: 0 24px;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--text-primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, #0074e4 0%, #00a86b 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.2s;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--text-primary);
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .search-box {
+            position: relative;
+        }
+
+        .search-box input {
+            background-color: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 8px 16px 8px 36px;
+            color: var(--text-primary);
+            width: 240px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .search-box input:focus {
+            border-color: var(--accent-blue);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-secondary);
+        }
+
+        .btn {
+            padding: 8px 16px;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--hover-bg);
+        }
+
+        .btn-primary {
+            background-color: var(--accent-blue);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #005bb5;
+        }
+
+        /* Hero Carousel */
+        .hero-section {
+            padding: 24px;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        .hero-carousel {
+            position: relative;
+            height: 500px;
+            border-radius: 12px;
+            overflow: hidden;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+        }
+
+        .carousel-slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: flex-end;
+            padding: 48px;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+
+        .carousel-slide.active {
+            opacity: 1;
+        }
+
+        .carousel-slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.3) 50%, transparent 100%);
+        }
+
+        .carousel-content {
+            position: relative;
+            z-index: 2;
+            max-width: 600px;
+        }
+
+        .carousel-tag {
+            display: inline-block;
+            background-color: var(--accent-blue);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .carousel-title {
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .carousel-desc {
+            font-size: 18px;
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+        }
+
+        .carousel-price {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 24px;
+        }
+
+        .carousel-buttons {
+            display: flex;
+            gap: 12px;
+        }
+
+        .btn-large {
+            padding: 12px 24px;
+            font-size: 16px;
+        }
+
+        .carousel-nav {
+            position: absolute;
+            bottom: 24px;
+            right: 48px;
+            display: flex;
+            gap: 8px;
+            z-index: 3;
+        }
+
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255,255,255,0.3);
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .carousel-dot.active {
+            background-color: white;
+        }
+
+        /* Main Content */
+        .main-container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 24px;
+            display: grid;
+            grid-template-columns: 240px 1fr;
+            gap: 32px;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            position: sticky;
+            top: 88px;
+            height: fit-content;
+        }
+
+        .filter-section {
+            margin-bottom: 32px;
+        }
+
+        .filter-title {
+            font-size: 14px;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+            letter-spacing: 0.5px;
+        }
+
+        .filter-list {
+            list-style: none;
+        }
+
+        .filter-list li {
+            margin-bottom: 8px;
+        }
+
+        .filter-list a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 6px 0;
+            transition: color 0.2s;
+        }
+
+        .filter-list a:hover {
+            color: var(--text-primary);
+        }
+
+        .filter-count {
+            background-color: var(--bg-card);
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+        }
+
+        /* Content Grid */
+        .content-section {
+            margin-bottom: 48px;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .view-all {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .view-all:hover {
+            color: var(--text-primary);
+        }
+
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 24px;
+        }
+
+        .game-card {
+            background-color: var(--bg-card);
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            position: relative;
+        }
+
+        .game-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+        }
+
+        .game-image {
+            width: 100%;
+            aspect-ratio: 3/4;
+            object-fit: cover;
+            background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+        }
+
+        .game-info {
+            padding: 12px;
+        }
+
+        .game-title {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 4px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .game-developer {
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+        }
+
+        .game-price-section {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .discount-badge {
+            background-color: var(--discount-bg);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .original-price {
+            text-decoration: line-through;
+            color: var(--text-secondary);
+            font-size: 12px;
+        }
+
+        .current-price {
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .free-tag {
+            color: var(--accent-green);
+            font-weight: bold;
+        }
+
+        /* Categories Nav */
+        .categories-nav {
+            display: flex;
+            gap: 24px;
+            padding: 16px 24px;
+            background-color: var(--bg-secondary);
+            margin-bottom: 24px;
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+
+        .categories-nav::-webkit-scrollbar {
+            display: none;
+        }
+
+        .category-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            white-space: nowrap;
+            padding: 8px 0;
+            border-bottom: 2px solid transparent;
+            transition: all 0.2s;
+        }
+
+        .category-link:hover,
+        .category-link.active {
+            color: var(--text-primary);
+            border-bottom-color: var(--accent-blue);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .main-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .sidebar {
+                display: none;
+            }
+            
+            .hero-carousel {
+                height: 400px;
+            }
+            
+            .carousel-title {
+                font-size: 32px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .search-box input {
+                width: 160px;
+            }
+            
+            .hero-carousel {
+                height: 300px;
+            }
+            
+            .carousel-content {
+                padding: 24px;
+            }
+            
+            .carousel-title {
+                font-size: 24px;
+            }
+            
+            .games-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 16px;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .game-card {
+            animation: fadeIn 0.5s ease-out;
+        }
+    </style>
 </head>
 <body>
-
-    <header class="navbar">
-        <div class="logo">
-            <img src="nintendo.png" alt="Nintendo Logo">
+    <!-- Header -->
+    <header class="header">
+        <div class="header-left">
+            <a href="#" class="logo">
+                <div class="logo-icon">E</div>
+                <span>EPIC GAMES</span>
+            </a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#" class="active">Descubrir</a></li>
+                    <li><a href="#">Noticias</a></li>
+                    <li><a href="#">Lista de deseos</a></li>
+                    <li><a href="#">Biblioteca</a></li>
+                </ul>
+            </nav>
         </div>
-        <div class="search-bar">
-            <input type="text" placeholder="Buscar juegos...">
+        <div class="header-right">
+            <div class="search-box">
+                <span class="search-icon">🔍</span>
+                <input type="text" placeholder="Buscar">
+            </div>
+            <button class="btn btn-secondary">Iniciar sesión</button>
+            <button class="btn btn-primary">Descargar</button>
         </div>
     </header>
 
-    <div class="container">
-        <aside class="sidebar">
-            <h3>Filtrar por</h3>
-            <div class="filter-group">
-                <h4>Género</h4>
-                <label><input type="checkbox"> Acción</label>
-                <label><input type="checkbox"> Aventura</label>
-                <label><input type="checkbox"> RPG</label>
+    <!-- Categories Nav -->
+    <div class="categories-nav">
+        <a href="#" class="category-link active">Novedades</a>
+        <a href="#" class="category-link">Los más vendidos</a>
+        <a href="#" class="category-link">Próximamente</a>
+        <a href="#" class="category-link">Ofertas</a>
+        <a href="#" class="category-link">Gratis</a>
+        <a href="#" class="category-link">Demos</a>
+        <a href="#" class="category-link">Early Access</a>
+    </div>
+
+    <!-- Hero Carousel -->
+    <section class="hero-section">
+        <div class="hero-carousel">
+            <div class="carousel-slide active" style="background-image: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);">
+                <div class="carousel-content">
+                    <span class="carousel-tag">Disponible ahora</span>
+                    <h1 class="carousel-title">Resident Evil Requiem</h1>
+                    <p class="carousel-desc">Compra Resident Evil Requiem y consigue el traje de Grace Ashcroft en Fortnite como regalo.</p>
+                    <div class="carousel-price">Desde 59,99 €</div>
+                    <div class="carousel-buttons">
+                        <button class="btn btn-primary btn-large">Comprar ahora</button>
+                        <button class="btn btn-secondary btn-large">Añadir a la lista de deseos</button>
+                    </div>
+                </div>
             </div>
-            <div class="filter-group">
-                <h4>Precio</h4>
-                <label><input type="checkbox"> Gratis</label>
-                <label><input type="checkbox"> Menos de COP 40.000</label>
+            <div class="carousel-slide" style="background-image: linear-gradient(135deg, #2d1b4e 0%, #1a0f2e 100%);">
+                <div class="carousel-content">
+                    <span class="carousel-tag">Actualización</span>
+                    <h1 class="carousel-title">Fortnite</h1>
+                    <p class="carousel-desc">No te pierdas las últimas novedades en Fortnite, del clásico Battle Royale a Blitz y Delulu.</p>
+                    <div class="carousel-price free-tag">Gratis</div>
+                    <div class="carousel-buttons">
+                        <button class="btn btn-primary btn-large">Jugar gratis</button>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-slide" style="background-image: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);">
+                <div class="carousel-content">
+                    <span class="carousel-tag">Colaboración</span>
+                    <h1 class="carousel-title">Ghost Face en Fortnite</h1>
+                    <p class="carousel-desc">No contestes al teléfono. ¡Ghost Face vuelve a Fortnite!</p>
+                    <div class="carousel-price">Desde 1.500 V-Bucks</div>
+                    <div class="carousel-buttons">
+                        <button class="btn btn-primary btn-large">Ver en la tienda</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="carousel-nav">
+                <div class="carousel-dot active" onclick="goToSlide(0)"></div>
+                <div class="carousel-dot" onclick="goToSlide(1)"></div>
+                <div class="carousel-dot" onclick="goToSlide(2)"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="main-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="filter-section">
+                <h3 class="filter-title">Género</h3>
+                <ul class="filter-list">
+                    <li><a href="#">Acción <span class="filter-count">1,234</span></a></li>
+                    <li><a href="#">Aventura <span class="filter-count">892</span></a></li>
+                    <li><a href="#">RPG <span class="filter-count">567</span></a></li>
+                    <li><a href="#">Estrategia <span class="filter-count">423</span></a></li>
+                    <li><a href="#">Deportes <span class="filter-count">234</span></a></li>
+                    <li><a href="#">Carreras <span class="filter-count">189</span></a></li>
+                </ul>
+            </div>
+            
+            <div class="filter-section">
+                <h3 class="filter-title">Características</h3>
+                <ul class="filter-list">
+                    <li><a href="#">Cooperativo <span class="filter-count">456</span></a></li>
+                    <li><a href="#">Multijugador <span class="filter-count">789</span></a></li>
+                    <li><a href="#">Un jugador <span class="filter-count">1,567</span></a></li>
+                    <li><a href="#">Mundo abierto <span class="filter-count">234</span></a></li>
+                </ul>
+            </div>
+            
+            <div class="filter-section">
+                <h3 class="filter-title">Plataforma</h3>
+                <ul class="filter-list">
+                    <li><a href="#">Windows <span class="filter-count">2,456</span></a></li>
+                    <li><a href="#">macOS <span class="filter-count">234</span></a></li>
+                </ul>
             </div>
         </aside>
 
-        <main class="games-grid">
-            <div class="game-card">
-                <div class="image-container">
-                    <img src="asback.jpeg" alt="Juego">
+        <!-- Content -->
+        <main>
+            <!-- Juegos destacados -->
+            <section class="content-section">
+                <div class="section-header">
+                    <h2 class="section-title">Juegos destacados</h2>
+                    <a href="#" class="view-all">Ver todo →</a>
                 </div>
-                <div class="game-info">
-                    <p class="platform">Nintendo Switch</p>
-                    <h2 class="game-title">Super Adventure Pro</h2>
-                    <p class="release-date">15/10/2023</p>
-                    <p class="price">COP 129.900</p>
-                    <div class="actions">
-                        <a href="#" class="btn-detail">Ver detalles</a>
-                        <a href="https://github.com/Anderson0525/Praticas-VSCODE/archive/refs/heads/main.zip" class="btn-buy">Descargar</a>
-                    </div>
+                <div class="games-grid" id="featured-games">
+                    <!-- Los juegos se generarán con JavaScript -->
                 </div>
-            </div>
+            </section>
 
-            <div class="game-card">
-                <div class="image-container">
-                    <img src="asback.jpeg" alt="Juego">
+            <!-- Ofertas especiales -->
+            <section class="content-section">
+                <div class="section-header">
+                    <h2 class="section-title">Ofertas especiales</h2>
+                    <a href="#" class="view-all">Ver todo →</a>
                 </div>
-                <div class="game-info">
-                    <p class="platform">Nintendo Switch</p>
-                    <h2 class="game-title">Charrata Quest</h2>
-                    <p class="release-date">20/01/2024</p>
-                    <p class="price">COP 99.000</p>
-                    <div class="actions">
-                        <a href="#" class="btn-detail">Ver detalles</a>
-                        <a href="#" class="btn-buy">Descargar</a>
-                    </div>
+                <div class="games-grid" id="sale-games">
+                    <!-- Los juegos se generarán con JavaScript -->
                 </div>
-            </div>
+            </section>
+
+            <!-- Gratis esta semana -->
+            <section class="content-section">
+                <div class="section-header">
+                    <h2 class="section-title">Gratis esta semana</h2>
+                    <a href="#" class="view-all">Ver todo →</a>
+                </div>
+                <div class="games-grid" id="free-games">
+                    <!-- Los juegos se generarán con JavaScript -->
+                </div>
+            </section>
         </main>
     </div>
 
-    <script src="script.js"></script>
+    <script>
+        // Datos de ejemplo para los juegos
+        const gamesData = {
+            featured: [
+                { title: "Black Myth: Wukong", developer: "Game Science", price: 59.99, discount: null, image: "linear-gradient(135deg, #2c1810 0%, #1a0f0a 100%)" },
+                { title: "Elden Ring", developer: "FromSoftware", price: 59.99, discount: 20, image: "linear-gradient(135deg, #1a1a2e 0%, #0f0f1a 100%)" },
+                { title: "Cyberpunk 2077", developer: "CD Projekt Red", price: 59.99, discount: 50, image: "linear-gradient(135deg, #fcee0a 0%, #ff0066 100%)" },
+                { title: "Hogwarts Legacy", developer: "Avalanche Software", price: 59.99, discount: 30, image: "linear-gradient(135deg, #1a0f2e 0%, #0f0518 100%)" },
+                { title: "Baldur's Gate 3", developer: "Larian Studios", price: 59.99, discount: null, image: "linear-gradient(135deg, #2d1b4e 0%, #1a0f2e 100%)" }
+            ],
+            sales: [
+                { title: "Red Dead Redemption 2", developer: "Rockstar Games", price: 59.99, discount: 67, originalPrice: 59.99, image: "linear-gradient(135deg, #8b0000 0%, #4a0000 100%)" },
+                { title: "The Witcher 3", developer: "CD Projekt Red", price: 39.99, discount: 80, originalPrice: 39.99, image: "linear-gradient(135deg, #2d3436 0%, #1a1a1a 100%)" },
+                { title: "GTA V", developer: "Rockstar Games", price: 29.99, discount: 50, originalPrice: 29.99, image: "linear-gradient(135deg, #00d2ff 0%, #3a7bd5 100%)" },
+                { title: "Assassin's Creed Valhalla", developer: "Ubisoft", price: 59.99, discount: 75, originalPrice: 59.99, image: "linear-gradient(135deg, #4a5568 0%, #2d3748 100%)" }
+            ],
+            free: [
+                { title: "Fortnite", developer: "Epic Games", price: 0, discount: null, image: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)" },
+                { title: "Rocket League", developer: "Psyonix", price: 0, discount: null, image: "linear-gradient(135deg, #00b894 0%, #00cec9 100%)" },
+                { title: "Genshin Impact", developer: "miHoYo", price: 0, discount: null, image: "linear-gradient(135deg, #e17055 0%, #d63031 100%)" },
+                { title: "Apex Legends", developer: "Respawn", price: 0, discount: null, image: "linear-gradient(135deg, #fdcb6e 0%, #e17055 100%)" }
+            ]
+        };
+
+        // Función para crear tarjeta de juego
+        function createGameCard(game) {
+            const hasDiscount = game.discount !== null;
+            const finalPrice = hasDiscount ? (game.price * (1 - game.discount / 100)).toFixed(2) : game.price;
+            
+            return `
+                <div class="game-card">
+                    <div class="game-image" style="background: ${game.image}; display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.3); font-size: 48px;">
+                        🎮
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">${game.title}</h3>
+                        <p class="game-developer">${game.developer}</p>
+                        <div class="game-price-section">
+                            ${hasDiscount ? `<span class="discount-badge">-${game.discount}%</span>` : ''}
+                            ${hasDiscount ? `<span class="original-price">${game.originalPrice || game.price} €</span>` : ''}
+                            <span class="current-price ${game.price === 0 ? 'free-tag' : ''}">
+                                ${game.price === 0 ? 'Gratis' : finalPrice + ' €'}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Renderizar juegos
+        function renderGames() {
+            document.getElementById('featured-games').innerHTML = gamesData.featured.map(createGameCard).join('');
+            document.getElementById('sale-games').innerHTML = gamesData.sales.map(createGameCard).join('');
+            document.getElementById('free-games').innerHTML = gamesData.free.map(createGameCard).join('');
+        }
+
+        // Carrusel
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-slide');
+        const dots = document.querySelectorAll('.carousel-dot');
+
+        function goToSlide(index) {
+            slides[currentSlide].classList.remove('active');
+            dots[currentSlide].classList.remove('active');
+            currentSlide = index;
+            slides[currentSlide].classList.add('active');
+            dots[currentSlide].classList.add('active');
+        }
+
+        function nextSlide() {
+            const next = (currentSlide + 1) % slides.length;
+            goToSlide(next);
+        }
+
+        // Auto-play carrusel
+        setInterval(nextSlide, 5000);
+
+        // Inicializar
+        renderGames();
+
+        // Efectos hover para las tarjetas
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.game-card');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-8px)';
+                });
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+        });
+
+        // Búsqueda funcional
+        document.querySelector('.search-box input').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            const allCards = document.querySelectorAll('.game-card');
+            
+            allCards.forEach(card => {
+                const title = card.querySelector('.game-title').textContent.toLowerCase();
+                const developer = card.querySelector('.game-developer').textContent.toLowerCase();
+                
+                if (title.includes(searchTerm) || developer.includes(searchTerm)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    </script>
 </body>
 </html>
