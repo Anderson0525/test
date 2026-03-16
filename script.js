@@ -53,15 +53,15 @@ const gamesData = {
     featured: [
         { 
             title: "Black Myth: Wukong", 
-            developer: "Game Science", 
+            developer: "imagenes/blackwukong.png", 
             price: 59.99, 
             discount: null, 
             image: "black-wukong.png",
-            freeDownload: false
+            freeDownload: true
         },
         { 
             title: "Elden Ring", 
-            developer: "FromSoftware", 
+            developer: "imagenes/eldenring.png", 
             price: 59.99, 
             discount: 20, 
             image: "elden-ring.png",
@@ -69,7 +69,7 @@ const gamesData = {
         },
         { 
             title: "Cyberpunk 2077", 
-            developer: "CD Projekt Red", 
+            developer: "imagenes/ciberpunk.png", 
             price: 59.99, 
             discount: 50, 
             image: "cyberpunk.png",
@@ -77,7 +77,7 @@ const gamesData = {
         },
         { 
             title: "Hogwarts Legacy", 
-            developer: "Avalanche Software", 
+            developer: "imagenes/harrypoter.png", 
             price: 59.99, 
             discount: 30, 
             image: "harry-potter.png",
@@ -85,7 +85,7 @@ const gamesData = {
         },
         { 
             title: "Baldur's Gate 3", 
-            developer: "Larian Studios", 
+            developer: "imagenes/Baldurs.png", 
             price: 59.99, 
             discount: null, 
             image: "baldurs.png",
