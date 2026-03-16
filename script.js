@@ -9,7 +9,7 @@ const gamesData = {
             developer: "Game Science", 
             price: 59.99, 
             discount: null, 
-            image: "imagenes/blackwukong.png",
+            image: "blackwukong.png",
             freeDownload: true
         },
         { 
