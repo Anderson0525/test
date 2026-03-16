@@ -9,7 +9,7 @@ const gamesData = {
             developer: "Game Science", 
             price: 59.99, 
             discount: null, 
-            image: "black wukong.png",
+            image: "blackwukong.png",
             freeDownload: false
         },
         { 
@@ -17,7 +17,7 @@ const gamesData = {
             developer: "FromSoftware", 
             price: 59.99, 
             discount: 20, 
-            image: "elden ring.png",
+            image: "eldenring.png",
             freeDownload: false
         },
         { 
@@ -33,7 +33,7 @@ const gamesData = {
             developer: "Avalanche Software", 
             price: 59.99, 
             discount: 30, 
-            image: "harry potter.png",
+            image: "harrypotter.png",
             freeDownload: false
         },
         { 
