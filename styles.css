@@ -1,4 +1,4 @@
-** {
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -44,36 +44,67 @@ body {
     gap: 32px;
 }
 
-.logo {
+/* Sección del logo */
+.logo-section {
     display: flex;
     align-items: center;
-    text-decoration: none;
-}
-
-.logo-img {
-    height: 32px;
-    width: auto;
-    object-fit: contain;
-}
-
-.nav-links {
-    display: flex;
     gap: 24px;
-    list-style: none;
 }
 
-.nav-links a {
+.epic-logo {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+}
+
+.epic-icon {
+    height: 28px;
+    width: auto;
+}
+
+.dropdown-arrow {
+    font-size: 10px;
+    color: var(--text-secondary);
+    margin-top: 2px;
+}
+
+.store-text {
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--text-primary);
+    letter-spacing: 1px;
+}
+
+/* Navegación superior */
+.top-nav {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.top-nav a {
     color: var(--text-secondary);
     text-decoration: none;
     font-size: 14px;
-    font-weight: 500;
     transition: color 0.2s;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
 }
 
-.nav-links a:hover,
-.nav-links a.active {
+.top-nav a:hover {
+    color: var(--text-primary);
+}
+
+.distribuir-dropdown {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--text-secondary);
+    font-size: 14px;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.distribuir-dropdown:hover {
     color: var(--text-primary);
 }
 
@@ -411,7 +442,7 @@ body {
     transform: scale(1.05);
 }
 
-/* Imagen por defecto (nintendo.png) cuando no hay imagen específica */
+/* Imagen por defecto (nintendo.png) */
 .game-image[src="nintendo.png"],
 .game-image:not([src^="http"]) {
     object-fit: contain;
@@ -511,7 +542,15 @@ body {
 }
 
 @media (max-width: 768px) {
-    .nav-links {
+    .logo-section {
+        gap: 12px;
+    }
+    
+    .store-text {
+        font-size: 14px;
+    }
+    
+    .top-nav {
         display: none;
     }
     
@@ -534,10 +573,6 @@ body {
     .games-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 16px;
-    }
-    
-    .logo-img {
-        height: 24px;
     }
 }
 
