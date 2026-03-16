@@ -13,7 +13,7 @@ const gamesData = {
             freeDownload: false
         },
         { 
-            title: "Elden Ring", 
+            title: "Elden Ring: Nnightreign",
             developer: "FromSoftware", 
             price: 59.99, 
             discount: 20, 
@@ -25,7 +25,7 @@ const gamesData = {
             developer: "CD Projekt Red", 
             price: 59.99, 
             discount: 50, 
-            image: "nintendo.png",
+            image: "ciberpunk.png",
             freeDownload: false
         },
         { 

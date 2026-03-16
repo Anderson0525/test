@@ -584,3 +584,52 @@ body {
 .game-card {
     animation: fadeIn 0.5s ease-out;
 }
+
+/* ============================================
+   ESTILOS BASE (aplican a TODOS los tamaños)
+   ============================================ */
+
+.games-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columnas en PC */
+    gap: 24px;
+}
+
+
+/* ============================================
+   TABLET (menos de 1024px)
+   ============================================ */
+@media (max-width: 1024px) {
+    .games-grid {
+        grid-template-columns: repeat(3, 1fr); /* 3 columnas */
+    }
+    
+    .sidebar {
+        display: none; /* Oculta sidebar en tablet */
+    }
+}
+
+
+/* ============================================
+   MÓVIL (menos de 768px)
+   ============================================ */
+@media (max-width: 768px) {
+    .games-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columnas */
+        gap: 16px;
+    }
+    
+    .header {
+        height: 56px;
+        padding: 0 16px;
+    }
+    
+    .carousel-title {
+        font-size: 24px; /* Texto más pequeño */
+    }
+}
+.game-image {
+    width: 100%;      /* Ocupa todo el ancho disponible */
+    height: auto;     /* Altura proporcional */
+    aspect-ratio: 3/4; /* Mantiene proporción vertical */
+}
