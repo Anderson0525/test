@@ -6,7 +6,7 @@ const gamesData = {
             developer: "Game Science", 
             price: 59.99, 
             discount: null, 
-            image: "https://cdn1.epicgames.com/spt-assets/764b2d57552c436590f50318bd7587f9/black-myth-wukong-1h9by.png" 
+            image: "nintendo.png" 
         },
         { 
             title: "Elden Ring", 
