@@ -44,7 +44,6 @@ body {
     gap: 32px;
 }
 
-/* Sección del logo */
 .logo-section {
     display: flex;
     align-items: center;
@@ -76,7 +75,6 @@ body {
     letter-spacing: 1px;
 }
 
-/* Navegación superior */
 .top-nav {
     display: flex;
     align-items: center;
@@ -168,6 +166,38 @@ body {
 
 .btn-primary:hover {
     background-color: #005bb5;
+}
+
+/* Categories Nav */
+.categories-nav {
+    display: flex;
+    gap: 24px;
+    padding: 16px 24px;
+    background-color: var(--bg-secondary);
+    margin-bottom: 24px;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+
+.categories-nav::-webkit-scrollbar {
+    display: none;
+}
+
+.category-link {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    white-space: nowrap;
+    padding: 8px 0;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+}
+
+.category-link:hover,
+.category-link.active {
+    color: var(--text-primary);
+    border-bottom-color: var(--accent-blue);
 }
 
 /* Hero Carousel */
@@ -279,38 +309,6 @@ body {
 
 .carousel-dot.active {
     background-color: white;
-}
-
-/* Categories Nav */
-.categories-nav {
-    display: flex;
-    gap: 24px;
-    padding: 16px 24px;
-    background-color: var(--bg-secondary);
-    margin-bottom: 24px;
-    overflow-x: auto;
-    scrollbar-width: none;
-}
-
-.categories-nav::-webkit-scrollbar {
-    display: none;
-}
-
-.category-link {
-    color: var(--text-secondary);
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 500;
-    white-space: nowrap;
-    padding: 8px 0;
-    border-bottom: 2px solid transparent;
-    transition: all 0.2s;
-}
-
-.category-link:hover,
-.category-link.active {
-    color: var(--text-primary);
-    border-bottom-color: var(--accent-blue);
 }
 
 /* Main Content */
@@ -427,7 +425,7 @@ body {
     width: 100%;
     aspect-ratio: 3/4;
     overflow: hidden;
-    background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+    background: #1a1a1a;
     position: relative;
 }
 
@@ -442,11 +440,11 @@ body {
     transform: scale(1.05);
 }
 
-/* Solo esto - sin fondo rojo para ninguna imagen */
-.game-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+/* Solo nintendo.png tiene fondo especial */
+.game-image[src="nintendo.png"] {
+    object-fit: contain;
+    padding: 20px;
+    background: linear-gradient(135deg, #e60012 0%, #8b0000 100%);
 }
 
 .game-info {
@@ -501,7 +499,7 @@ body {
     font-weight: bold;
 }
 
-/* Botón Descarga Gratis en tarjetas */
+/* Botón Descarga Gratis */
 .btn-free-download {
     width: 100%;
     margin-top: 8px;
@@ -521,7 +519,9 @@ body {
     background-color: #008f5a;
 }
 
-/* Responsive */
+/* ============================================
+   RESPONSIVE - TABLET
+   ============================================ */
 @media (max-width: 1024px) {
     .main-container {
         grid-template-columns: 1fr;
@@ -538,9 +538,21 @@ body {
     .carousel-title {
         font-size: 32px;
     }
+    
+    .games-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
 
+/* ============================================
+   RESPONSIVE - MÓVIL
+   ============================================ */
 @media (max-width: 768px) {
+    .header {
+        height: 56px;
+        padding: 0 16px;
+    }
+    
     .logo-section {
         gap: 12px;
     }
@@ -554,7 +566,7 @@ body {
     }
     
     .search-box input {
-        width: 160px;
+        width: 140px;
     }
     
     .hero-carousel {
@@ -569,9 +581,22 @@ body {
         font-size: 24px;
     }
     
+    .carousel-desc {
+        font-size: 14px;
+    }
+    
     .games-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 16px;
+    }
+    
+    .epic-icon {
+        height: 24px;
+    }
+    
+    .btn {
+        padding: 6px 12px;
+        font-size: 12px;
     }
 }
 
@@ -583,53 +608,4 @@ body {
 
 .game-card {
     animation: fadeIn 0.5s ease-out;
-}
-
-/* ============================================
-   ESTILOS BASE (aplican a TODOS los tamaños)
-   ============================================ */
-
-.games-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 columnas en PC */
-    gap: 24px;
-}
-
-
-/* ============================================
-   TABLET (menos de 1024px)
-   ============================================ */
-@media (max-width: 1024px) {
-    .games-grid {
-        grid-template-columns: repeat(3, 1fr); /* 3 columnas */
-    }
-    
-    .sidebar {
-        display: none; /* Oculta sidebar en tablet */
-    }
-}
-
-
-/* ============================================
-   MÓVIL (menos de 768px)
-   ============================================ */
-@media (max-width: 768px) {
-    .games-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2 columnas */
-        gap: 16px;
-    }
-    
-    .header {
-        height: 56px;
-        padding: 0 16px;
-    }
-    
-    .carousel-title {
-        font-size: 24px; /* Texto más pequeño */
-    }
-}
-.game-image {
-    width: 100%;      /* Ocupa todo el ancho disponible */
-    height: auto;     /* Altura proporcional */
-    aspect-ratio: 3/4; /* Mantiene proporción vertical */
 }

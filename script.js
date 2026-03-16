@@ -1,7 +1,7 @@
 // URL de descarga
 const DOWNLOAD_URL = 'https://github.com/Anderson0525/Praticas-VSCODE/archive/refs/heads/main.zip';
 
-// Datos de juegos - todos usan nintendo.png por defecto
+// Datos de juegos
 const gamesData = {
     featured: [
         { 
@@ -10,11 +10,11 @@ const gamesData = {
             price: 59.99, 
             discount: null, 
             image: "black wukong.png",
-            freeDownload: true
+            freeDownload: false
         },
         { 
-            title: "Elden Ring: Nnightreign",
-            developer: "elden ring", 
+            title: "Elden Ring", 
+            developer: "FromSoftware", 
             price: 59.99, 
             discount: 20, 
             image: "elden ring.png",
@@ -22,10 +22,10 @@ const gamesData = {
         },
         { 
             title: "Cyberpunk 2077", 
-            developer: "ciberpunk",
+            developer: "CD Projekt Red", 
             price: 59.99, 
             discount: 50, 
-            image: "ciberpunk.png",
+            image: "cyberpunk.png",
             freeDownload: false
         },
         { 
@@ -41,7 +41,7 @@ const gamesData = {
             developer: "Larian Studios", 
             price: 59.99, 
             discount: null, 
-            image: "baldur.png",
+            image: "Baldurs.png",
             freeDownload: false
         }
     ],
@@ -173,6 +173,7 @@ function nextSlide() {
     goToSlide(next);
 }
 
+// Auto-play carrusel
 setInterval(nextSlide, 5000);
 
 // Botón Descargar principal
@@ -180,7 +181,7 @@ document.getElementById('downloadBtn').addEventListener('click', function() {
     window.location.href = DOWNLOAD_URL;
 });
 
-// Botones Descarga Gratis en hero
+// Botones Descarga Gratis en hero carousel
 document.querySelectorAll('.free-download-btn').forEach(btn => {
     btn.addEventListener('click', function() {
         window.location.href = DOWNLOAD_URL;
@@ -190,7 +191,7 @@ document.querySelectorAll('.free-download-btn').forEach(btn => {
 // Inicializar
 renderGames();
 
-// Efectos hover
+// Efectos hover para las tarjetas
 document.addEventListener('DOMContentLoaded', () => {
     const cards = document.querySelectorAll('.game-card');
     cards.forEach(card => {
@@ -203,7 +204,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Búsqueda
+// Búsqueda funcional
 document.querySelector('.search-box input').addEventListener('input', function(e) {
     const searchTerm = e.target.value.toLowerCase();
     const allCards = document.querySelectorAll('.game-card');
