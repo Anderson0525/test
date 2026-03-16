@@ -7,7 +7,7 @@ const gamesData = {
         { 
             title: "Black Myth: Wukong", 
             developer: "Game Science", 
-            price: "Gratis", 
+            price: 0, 
             discount: null, 
             image: "imagenes/blackwukong.png",
             freeDownload: true
@@ -15,10 +15,10 @@ const gamesData = {
         { 
             title: "Elden Ring", 
             developer: "FromSoftware", 
-            price: 59.99, 
-            discount: 20, 
+            price: 0, 
+            discount: null, 
             image: "imagenes/eldenring.png",
-            freeDownload: false
+            freeDownload: true
         },
         { 
             title: "Cyberpunk 2077", 
