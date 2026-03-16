@@ -1,4 +1,4 @@
-/ URL de descarga
+// URL de descarga
 const DOWNLOAD_URL = 'https://github.com/Anderson0525/Praticas-VSCODE/archive/refs/heads/main.zip';
 
 // Datos de juegos
