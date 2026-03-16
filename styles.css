@@ -421,6 +421,10 @@ body {
     box-shadow: 0 8px 24px rgba(0,0,0,0.4);
 }
 
+/* ============================================
+   IMÁGENES DE JUEGOS - CORREGIDO
+   ============================================ */
+
 .game-image-container {
     width: 100%;
     aspect-ratio: 3/4;
@@ -436,15 +440,21 @@ body {
     transition: transform 0.3s ease;
 }
 
-.game-card:hover .game-image {
-    transform: scale(1.05);
+/* Cualquier imagen que NO sea nintendo.png cubre todo */
+.game-image:not([src*="nintendo.png"]) {
+    object-fit: cover;
 }
 
-/* Solo nintendo.png tiene fondo especial */
-.game-image[src="nintendo.png"] {
+/* Solo nintendo.png tiene fondo rojo y padding */
+.game-image[src*="nintendo.png"] {
     object-fit: contain;
     padding: 20px;
     background: linear-gradient(135deg, #e60012 0%, #8b0000 100%);
+}
+
+/* Hover efecto */
+.game-card:hover .game-image {
+    transform: scale(1.05);
 }
 
 .game-info {

@@ -9,15 +9,15 @@ const gamesData = {
             developer: "Game Science", 
             price: 59.99, 
             discount: null, 
-            image: "imagenes/wukong.png",
-            freeDownload: false
+            image: "imagenes/blackwukong.png",
+            freeDownload: true
         },
         { 
             title: "Elden Ring", 
             developer: "FromSoftware", 
             price: 59.99, 
             discount: 20, 
-            image: "imanges/eldenring.png",
+            image: "imagenes/eldenring.png",
             freeDownload: false
         },
         { 
@@ -25,7 +25,7 @@ const gamesData = {
             developer: "CD Projekt Red", 
             price: 59.99, 
             discount: 50, 
-            image: "imegnes/cyberpunk.png",
+            image: "imagenes/ciberpunk.png",
             freeDownload: false
         },
         { 
@@ -33,7 +33,7 @@ const gamesData = {
             developer: "Avalanche Software", 
             price: 59.99, 
             discount: 30, 
-            image: "imagenes/harrypotter.png",
+            image: "imagenes/harrypoter.png",
             freeDownload: false
         },
         { 
@@ -41,7 +41,7 @@ const gamesData = {
             developer: "Larian Studios", 
             price: 59.99, 
             discount: null, 
-            image: "imagenes/baldursgate3.png",
+            image: "imagenes/Baldurs.png",
             freeDownload: false
         }
     ],
