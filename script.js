@@ -14,7 +14,7 @@ const gamesData = {
         },
         { 
             title: "Elden Ring: Nnightreign",
-            developer: "FromSoftware", 
+            developer: "elden ring", 
             price: 59.99, 
             discount: 20, 
             image: "elden ring.png",
@@ -22,7 +22,7 @@ const gamesData = {
         },
         { 
             title: "Cyberpunk 2077", 
-            developer: "CD Projekt Red", 
+            developer: "ciberpunk",
             price: 59.99, 
             discount: 50, 
             image: "ciberpunk.png",
@@ -33,7 +33,7 @@ const gamesData = {
             developer: "Avalanche Software", 
             price: 59.99, 
             discount: 30, 
-            image: "nintendo.png",
+            image: "harry potter.png",
             freeDownload: false
         },
         { 
@@ -41,7 +41,7 @@ const gamesData = {
             developer: "Larian Studios", 
             price: 59.99, 
             discount: null, 
-            image: "nintendo.png",
+            image: "baldur.png",
             freeDownload: false
         }
     ],
