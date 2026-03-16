@@ -619,27 +619,52 @@ body {
 .game-card {
     animation: fadeIn 0.5s ease-out;
 }
-/* Contenedor de la imagen de fondo */
+/* Contenedor del Carrusel */
+.hero-carousel {
+    position: relative;
+    height: 500px;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+/* El Slide (la capa que contiene todo) */
+.carousel-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none; /* Oculto por defecto */
+    opacity: 0;
+    transition: opacity 0.6s ease-in-out;
+}
+
+/* El slide que está activo se muestra */
+.carousel-slide.active {
+    display: block;
+    opacity: 1;
+}
+
+/* Capa de imagen (se encarga de mostrar la foto) */
 .slide-background {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-size: cover;      /* Hace que la foto cubra todo el espacio */
-    background-position: center;  /* Centra la imagen */
-    z-index: 1;                  /* La pone detrás del contenido */
-    opacity: 0.6;                /* Un poco de transparencia para que el texto se lea bien */
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
 }
 
-/* Asegúrate de que el contenido esté por encima */
+/* Contenido (Texto y botones) */
 .carousel-content {
     position: relative;
-    z-index: 2; /* Mayor que el de la imagen */
-}
-
-/* Ajuste para el slide padre */
-.carousel-slide {
-    position: relative;
-    overflow: hidden; /* Para que la imagen no se salga de las esquinas redondeadas */
+    z-index: 2;
+    padding: 60px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: linear-gradient(to right, rgba(0,0,0,0.8), transparent);
 }
