@@ -61,7 +61,7 @@ const gamesData = {
             price: 7.99, 
             discount: 80, 
             originalPrice: 39.99, 
-            image: "imagenes/TheWitcher3.png",
+            image: "imagenes/TheWitcher.png",
             freeDownload: false
         },
         { 
@@ -79,7 +79,7 @@ const gamesData = {
             price: 14.99, 
             discount: 75, 
             originalPrice: 59.99, 
-            image: "imagenes/assassins.png",
+            image: "imagenes/imagenes/assassin.png",
             freeDownload: false
         }
     ],
@@ -89,7 +89,7 @@ const gamesData = {
             developer: "Epic Games", 
             price: 0, 
             discount: null, 
-            image: "imagenes/fortinehero.png",
+            image: "imagenes/fortnitehero.png",
             freeDownload: true
         },
         { 
@@ -97,7 +97,7 @@ const gamesData = {
             developer: "Psyonix", 
             price: 0, 
             discount: null, 
-            image: "imagenes/roketleague.png",
+            image: "imagenes/rocketleague.png",
             freeDownload: true
         },
         { 
@@ -105,7 +105,7 @@ const gamesData = {
             developer: "miHoYo", 
             price: 0, 
             discount: null, 
-            image: "imagenes/gesthin.png",
+            image: "imagenes/genshin.png",
             freeDownload: true
         },
         { 
