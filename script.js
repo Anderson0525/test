@@ -7,7 +7,7 @@ const gamesData = {
         { 
             title: "Black Myth: Wukong", 
             developer: "Game Science", 
-            price: 59.99, 
+            price: "Gratis", 
             discount: null, 
             image: "imagenes/blackwukong.png",
             freeDownload: true
