@@ -1,94 +1,47 @@
 // URL de descarga
 const DOWNLOAD_URL = 'https://github.com/Anderson0525/Praticas-VSCODE/archive/refs/heads/main.zip';
 
-// ============================================
-// BOTÓN DESCARGAR PRINCIPAL (Header)
-// ============================================
-const downloadBtn = document.getElementById('downloadBtn');
-if(downloadBtn) {
-    downloadBtn.addEventListener('click', function() {
-        window.location.href = DOWNLOAD_URL;
-    });
-}
-
-// ============================================
-// BOTONES "DESCARGA GRATIS" EN CARRUSEL
-// ============================================
-document.querySelectorAll('.free-download-btn').forEach(btn => {
-    btn.addEventListener('click', function() {
-        window.location.href = DOWNLOAD_URL;
-    });
-});
-
-// ============================================
-// CARRUSEL
-// ============================================
-let currentSlide = 0;
-const slides = document.querySelectorAll('.carousel-slide');
-const dots = document.querySelectorAll('.carousel-dot');
-
-function goToSlide(index) {
-    if(slides.length === 0) return;
-    slides[currentSlide].classList.remove('active');
-    dots[currentSlide].classList.remove('active');
-    currentSlide = index;
-    slides[currentSlide].classList.add('active');
-    dots[currentSlide].classList.add('active');
-}
-
-function nextSlide() {
-    const next = (currentSlide + 1) % slides.length;
-    goToSlide(next);
-}
-
-// Auto-play carrusel
-if(slides.length > 0) {
-    setInterval(nextSlide, 5000);
-}
-
-// ============================================
-// DATOS DE JUEGOS
-// ============================================
+// Datos de juegos
 const gamesData = {
     featured: [
         { 
             title: "Black Myth: Wukong", 
-            developer: "imagenes/blackwukong.png", 
+            developer: "Game Science", 
             price: 59.99, 
             discount: null, 
-            image: "black-wukong.png",
+            image: "imagenes/blackwukong.png",
             freeDownload: true
         },
         { 
             title: "Elden Ring", 
-            developer: "imagenes/eldenring.png", 
+            developer: "FromSoftware", 
             price: 59.99, 
             discount: 20, 
-            image: "elden-ring.png",
+            image: "imagenes/eldenring.png",
             freeDownload: false
         },
         { 
             title: "Cyberpunk 2077", 
-            developer: "imagenes/ciberpunk.png", 
+            developer: "CD Projekt Red", 
             price: 59.99, 
             discount: 50, 
-            image: "cyberpunk.png",
+            image: "imagenes/ciberpunk.png",
             freeDownload: false
         },
         { 
             title: "Hogwarts Legacy", 
-            developer: "imagenes/harrypoter.png", 
+            developer: "Avalanche Software", 
             price: 59.99, 
             discount: 30, 
-            image: "harry-potter.png",
+            image: "imagenes/harrypoter.png",
             freeDownload: false
         },
         { 
             title: "Baldur's Gate 3", 
-            developer: "imagenes/Baldurs.png", 
+            developer: "Larian Studios", 
             price: 59.99, 
             discount: null, 
-            image: "baldurs.png",
+            image: "imagenes/Baldurs.png",
             freeDownload: false
         }
     ],
@@ -166,9 +119,7 @@ const gamesData = {
     ]
 };
 
-// ============================================
-// CREAR TARJETAS DE JUEGOS
-// ============================================
+// Función para crear tarjeta de juego
 function createGameCard(game) {
     const hasDiscount = game.discount !== null && game.discount > 0;
     const finalPrice = hasDiscount ? (game.price * (1 - game.discount / 100)).toFixed(2) : game.price;
@@ -179,7 +130,7 @@ function createGameCard(game) {
     return `
         <div class="game-card">
             <div class="game-image-container">
-                <img src="${game.image}" alt="${game.title}" class="game-image" onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%)'; this.parentElement.innerHTML='<div style=\\'color:#666;font-size:48px;\\'>🎮</div>';">
+                <img src="${game.image}" alt="${game.title}" class="game-image" onerror="this.src='nintendo.png'">
             </div>
             <div class="game-info">
                 <h3 class="game-title">${game.title}</h3>
@@ -197,27 +148,50 @@ function createGameCard(game) {
     `;
 }
 
-// ============================================
-// RENDERIZAR JUEGOS
-// ============================================
+// Renderizar juegos
 function renderGames() {
-    const featuredContainer = document.getElementById('featured-games');
-    const saleContainer = document.getElementById('sale-games');
-    const freeContainer = document.getElementById('free-games');
-    
-    if(featuredContainer) featuredContainer.innerHTML = gamesData.featured.map(createGameCard).join('');
-    if(saleContainer) saleContainer.innerHTML = gamesData.sales.map(createGameCard).join('');
-    if(freeContainer) freeContainer.innerHTML = gamesData.free.map(createGameCard).join('');
+    document.getElementById('featured-games').innerHTML = gamesData.featured.map(createGameCard).join('');
+    document.getElementById('sale-games').innerHTML = gamesData.sales.map(createGameCard).join('');
+    document.getElementById('free-games').innerHTML = gamesData.free.map(createGameCard).join('');
 }
 
-// ============================================
-// INICIALIZAR
-// ============================================
+// Carrusel
+let currentSlide = 0;
+const slides = document.querySelectorAll('.carousel-slide');
+const dots = document.querySelectorAll('.carousel-dot');
+
+function goToSlide(index) {
+    slides[currentSlide].classList.remove('active');
+    dots[currentSlide].classList.remove('active');
+    currentSlide = index;
+    slides[currentSlide].classList.add('active');
+    dots[currentSlide].classList.add('active');
+}
+
+function nextSlide() {
+    const next = (currentSlide + 1) % slides.length;
+    goToSlide(next);
+}
+
+// Auto-play carrusel
+setInterval(nextSlide, 5000);
+
+// Botón Descargar principal
+document.getElementById('downloadBtn').addEventListener('click', function() {
+    window.location.href = DOWNLOAD_URL;
+});
+
+// Botones Descarga Gratis en hero carousel
+document.querySelectorAll('.free-download-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+        window.location.href = DOWNLOAD_URL;
+    });
+});
+
+// Inicializar
 renderGames();
 
-// ============================================
-// EFECTOS HOVER
-// ============================================
+// Efectos hover para las tarjetas
 document.addEventListener('DOMContentLoaded', () => {
     const cards = document.querySelectorAll('.game-card');
     cards.forEach(card => {
@@ -230,24 +204,19 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// ============================================
-// BÚSQUEDA
-// ============================================
-const searchInput = document.querySelector('.search-box input');
-if(searchInput) {
-    searchInput.addEventListener('input', function(e) {
-        const searchTerm = e.target.value.toLowerCase();
-        const allCards = document.querySelectorAll('.game-card');
+// Búsqueda funcional
+document.querySelector('.search-box input').addEventListener('input', function(e) {
+    const searchTerm = e.target.value.toLowerCase();
+    const allCards = document.querySelectorAll('.game-card');
+    
+    allCards.forEach(card => {
+        const title = card.querySelector('.game-title').textContent.toLowerCase();
+        const developer = card.querySelector('.game-developer').textContent.toLowerCase();
         
-        allCards.forEach(card => {
-            const title = card.querySelector('.game-title').textContent.toLowerCase();
-            const developer = card.querySelector('.game-developer').textContent.toLowerCase();
-            
-            if (title.includes(searchTerm) || developer.includes(searchTerm)) {
-                card.style.display = 'block';
-            } else {
-                card.style.display = 'none';
-            }
-        });
+        if (title.includes(searchTerm) || developer.includes(searchTerm)) {
+            card.style.display = 'block';
+        } else {
+            card.style.display = 'none';
+        }
     });
-}
+});
