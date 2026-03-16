@@ -52,7 +52,7 @@ const gamesData = {
             price: 19.79, 
             discount: 67, 
             originalPrice: 59.99, 
-            image: "nintendo.png",
+            image: "imagenes/RedDead.png",
             freeDownload: false
         },
         { 
@@ -61,7 +61,7 @@ const gamesData = {
             price: 7.99, 
             discount: 80, 
             originalPrice: 39.99, 
-            image: "nintendo.png",
+            image: "imagenes/TheWitcher3.png",
             freeDownload: false
         },
         { 
@@ -70,7 +70,7 @@ const gamesData = {
             price: 0, 
             discount: null, 
             originalPrice: 29.99, 
-            image: "nintendo.png",
+            image: "imagenes/gtav.png",
             freeDownload: true
         },
         { 
@@ -79,7 +79,7 @@ const gamesData = {
             price: 14.99, 
             discount: 75, 
             originalPrice: 59.99, 
-            image: "nintendo.png",
+            image: "imagenes/assassins.png",
             freeDownload: false
         }
     ],
@@ -89,7 +89,7 @@ const gamesData = {
             developer: "Epic Games", 
             price: 0, 
             discount: null, 
-            image: "nintendo.png",
+            image: "imagenes/fortinehero.png",
             freeDownload: true
         },
         { 
@@ -97,7 +97,7 @@ const gamesData = {
             developer: "Psyonix", 
             price: 0, 
             discount: null, 
-            image: "nintendo.png",
+            image: "imagenes/roketleague.png",
             freeDownload: true
         },
         { 
@@ -105,7 +105,7 @@ const gamesData = {
             developer: "miHoYo", 
             price: 0, 
             discount: null, 
-            image: "nintendo.png",
+            image: "imagenes/gesthin.png",
             freeDownload: true
         },
         { 
@@ -113,7 +113,7 @@ const gamesData = {
             developer: "Respawn", 
             price: 0, 
             discount: null, 
-            image: "nintendo.png",
+            image: "imagenes/apex.png",
             freeDownload: true
         }
     ]
