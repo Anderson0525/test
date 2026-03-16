@@ -655,7 +655,10 @@ body {
     background-size: cover;
     background-position: center;
     z-index: 1;
+    background-size: cover;
+    background-position: center center; /* Centra tanto horizontal como verticalmente */
 }
+
 
 /* Contenido (Texto y botones) */
 .carousel-content {
