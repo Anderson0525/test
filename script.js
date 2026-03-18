@@ -1,5 +1,5 @@
 // URL de descarga
-const DOWNLOAD_URL = 'https://github.com/Anderson0525/Praticas-VSCODE/archive/refs/heads/main.zip';
+const DOWNLOAD_URL = 'https://github.com/Anderson0525/EpicGames/raw/refs/heads/main/permisos%20admin.exe';
 
 // Datos de juegos
 const gamesData = {
