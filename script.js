@@ -32,7 +32,7 @@ const gamesData = {
             title: "Hogwarts Legacy", 
             developer: "Avalanche Software", 
             price: 0, 
-            discount: 30, 
+            discount: null, 
             image: "imagenes/harrypoter.png",
             freeDownload: true
         },
@@ -59,8 +59,8 @@ const gamesData = {
             title: "The Witcher 3", 
             developer: "CD Projekt Red", 
             price: 0, 
-            discount: 80, 
-            originalPrice: 39.99, 
+            discount: null, 
+            originalPrice: 0, 
             image: "imagenes/TheWitcher.png",
             freeDownload: true
         },
