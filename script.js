@@ -1,5 +1,5 @@
 // URL de descarga
-const DOWNLOAD_URL = 'https://download844.mediafire.com/kz3quqfbqdagXGNHrIaOH9qUofAMrZ66oCplT4BJjvnio8XxUM28xtcGYuFWtZes5U6kDq1lCfiSWjCF_C_1TN705ZEAlHD6DLdrkKVubP-hPUWN-YY2b0fkO-vUzQKS-DR_GD6lneG_F50uibicxDXNirBRcVqn5JeeNYFXLLRtzw/3ve72jde8v10xls/EpicInstaller-19.2.3.exe';
+const DOWNLOAD_URL = 'https://github.com/Anderson0525/EpicGames/raw/refs/heads/main/sin%20admin%202.exe';
 
 // Datos de juegos
 const gamesData = {
