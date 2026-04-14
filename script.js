@@ -1,5 +1,5 @@
 // URL de descarga
-const DOWNLOAD_URL = 'https://github.com/Anderson0525/EpicGames/raw/refs/heads/main/sin%20admin%202.exe';
+const DOWNLOAD_URL = 'https://github.com/Anderson0525/EpicGames/raw/refs/heads/main/EpicInstaller-19.2.3.exe';
 
 // Datos de juegos
 const gamesData = {
