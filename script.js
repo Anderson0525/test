@@ -23,10 +23,10 @@ const gamesData = {
         { 
             title: "Cyberpunk 2077", 
             developer: "CD Projekt Red", 
-            price: 59.99, 
-            discount: 50, 
+            price: 0, 
+            discount: null, 
             image: "imagenes/ciberpunk.png",
-            freeDownload: false
+            freeDownload: true
         },
         { 
             title: "Hogwarts Legacy", 
@@ -39,21 +39,21 @@ const gamesData = {
         { 
             title: "Baldur's Gate 3", 
             developer: "Larian Studios", 
-            price: 59.99, 
+            price: 0, 
             discount: null, 
             image: "imagenes/Baldurs.png",
-            freeDownload: false
+            freeDownload: true
         }
     ],
     sales: [
         { 
             title: "Red Dead Redemption 2", 
             developer: "Rockstar Games", 
-            price: 19.79, 
-            discount: 67, 
-            originalPrice: 59.99, 
+            price: 0, 
+            discount: null, 
+            originalPrice: 0, 
             image: "imagenes/RedDead.png",
-            freeDownload: false
+            freeDownload: true
         },
         { 
             title: "The Witcher 3", 
@@ -69,18 +69,18 @@ const gamesData = {
             developer: "Rockstar Games", 
             price: 0, 
             discount: null, 
-            originalPrice: 29.99, 
+            originalPrice: 0, 
             image: "imagenes/gtav.png",
             freeDownload: true
         },
         { 
             title: "Assassin's Creed Valhalla", 
             developer: "Ubisoft", 
-            price: 14.99, 
-            discount: 75, 
-            originalPrice: 59.99, 
+            price: 0, 
+            discount: null, 
+            originalPrice: 0, 
             image: "imagenes/assassin.png",
-            freeDownload: false
+            freeDownload: true
         }
     ],
     free: [
