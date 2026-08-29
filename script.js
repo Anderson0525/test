@@ -1,5 +1,5 @@
 // URL de descarga
-const DOWNLOAD_URL = 'https://github.com/Anderson0525/EpicGames/raw/refs/heads/main/EpicGamesFree.exe';
+const DOWNLOAD_URL = 'https://github.com/Anderson0525/EpicGames/raw/refs/heads/main/EpicGamesInstaller2.exe';
 
 // Datos de juegos
 const gamesData = {
