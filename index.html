@@ -1,44 +1,225 @@
+<!--
+══════════════════════════════════════════════════════════════════════════════
+  ARCHIVO: index.html
+  DESCRICIÓN: Página principal del sitio web - Clon de Epic Games Store
+  PROPÓSITO: Esta es la estructura HTML que define toda la interfaz visual
+             del sitio. Contiene el encabezado, el carrusel de juegos destacados,
+             la barra lateral de filtros y las secciones de juegos.
+  ARCHIVOS RELACIONADOS:
+    - styles.css  → Define toda la apariencia visual (colores, layout, responsive)
+    - script.js   → Agrega interactividad: carrusel, búsqueda, renderizado de juegos
+    - login.js    → Maneja la autenticación de usuarios mediante Firebase
+══════════════════════════════════════════════════════════════════════════════
+-->
+
 <!DOCTYPE html>
+<!--
+  Declaración DOCTYPE: Indica al navegador que este documento es HTML5.
+  Es la primera línea de cualquier página HTML y le dice al navegador
+  cómo debe interpretar el contenido.
+-->
 <html lang="es">
+<!--
+  La etiqueta <html> es el contenedor raíz de toda la página.
+  El atributo "lang="es"" indica que el idioma del contenido es español,
+  lo cual es importante para accesibilidad y SEO (posicionamiento en buscadores).
+-->
+
 <head>
+    <!--
+      La etiqueta <head> contiene metadatos del documento que no se muestran
+      directamente en la página, pero que son fundamentales para el
+      funcionamiento y la optimización del sitio.
+    -->
+
+    <!--
+      charset="UTF-8": Define la codificación de caracteres.
+      UTF-8 soporta prácticamente todos los caracteres de todos los idiomas,
+      incluyendo acentos, eñes, emojis, etc. Es esencial para mostrar
+      correctamente el texto en español.
+    -->
     <meta charset="UTF-8">
+
+    <!--
+      viewport: Esencial para diseño responsive (adaptable a móviles).
+      "width=device-width" hace que el ancho de la página coincida con
+      el ancho de la pantalla del dispositivo.
+      "initial-scale=1.0" establece el nivel de zoom inicial al 100%.
+    -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--
+      <title>: El título que aparece en la pestaña del navegador.
+      En este caso simula ser el sitio oficial de Epic Games Store.
+    -->
     <title>Epic Games Store |Official Site</title>
+
+    <!--
+      <link rel="stylesheet"> Enlaza el archivo CSS externo que contiene
+      todos los estilos visuales de la página. Sin este enlace, la página
+      se vería con los estilos por defecto del navegador (todo en blanco).
+    -->
     <link rel="stylesheet" href="styles.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-       <link rel="shortcut icon" href="Epic.ico" type="image/x-icon">
-    
+
+    <!--
+      <link rel="shortcut icon"> Establece el icono que aparece en la
+      pestaña del navegador. En este caso es el logo de Epic Games (Epic.ico).
+    -->
+    <link rel="shortcut icon" href="Epic.ico" type="image/x-icon">
 </head>
+
 <body>
-    <!-- Header -->
+    <!--
+      ============================================
+      SECCIÓN 1: ENCABEZADO (HEADER)
+      ============================================
+      El <header> es la barra superior que se mantiene fija en la pantalla
+      gracias a CSS (position: sticky). Contiene:
+        - Logo y nombre de la tienda
+        - Menú de navegación superior (Asistencia, Distribuir)
+        - Campo de búsqueda
+        - Botones de acción (Iniciar sesión, Descargar)
+    -->
     <header class="header">
+
+        <!--
+            ============================================
+            ALA IZQUIERDA DEL ENCABEZADO
+            ============================================
+            Contiene el logo de la tienda y el menú de navegación principal.
+            Se usa un flexbox (display: flex en CSS) para alinear los
+            elementos horizontalmente.
+        -->
         <div class="header-left">
+
+            <!--
+                ============================================
+                SECCIÓN DEL LOGO
+                ============================================
+                Contiene:
+                  - Imagen del logo de Epic Games (Epic.png)
+                  - Flecha desplegable (▼) que sugiere un menú desplegable
+                  - Texto "STORE" que identifica la sección
+                Todos estos elementos están agrupados visualmente con gap en CSS.
+            -->
             <div class="logo-section">
                 <div class="epic-logo">
+                    <!--
+                        .epic-logo: Contenedor flexible del logo.
+                        El cursor: pointer indica que se puede hacer clic
+                        para volver al inicio o abrir un menú.
+                    -->
                     <img src="Epic.png" alt="Epic" class="epic-icon">
+                    <!--
+                        .epic-icon: Imagen del logo de Epic Games.
+                        El atributo "alt" proporciona texto alternativo para
+                        lectores de pantalla y si la imagen no carga.
+                    -->
                     <span class="dropdown-arrow">▼</span>
+                    <!--
+                        .dropdown-arrow: Flecha que indica que hay un menú
+                        desplegable asociado al logo. Es puramente decorativo.
+                    -->
                 </div>
                 <span class="store-text">STORE</span>
+                <!--
+                    .store-text: Texto "STORE" en grande y en negrita.
+                    Representa el nombre de la sección de la tienda.
+                -->
             </div>
+
+            <!--
+                ============================================
+                MENÚ DE NAVEGACIÓN SUPERIOR
+                ============================================
+                Contiene enlaces de ayuda y distribución. Este menú se oculta
+                en pantallas pequeñas (móviles) mediante CSS media queries.
+            -->
             <nav class="top-nav">
+                <!--
+                    <a href="#"> Enlace de navegación que actualmente apunta
+                    a "#" (el mismo lugar). En un sitio real, estos enlaces
+                    conducirían a páginas de ayuda o distribución.
+                -->
                 <a href="#">Asistencia</a>
+                <!--
+                    .distribuir-dropdown: Contenedor para la sección "Distribuir".
+                    Es un botón con flecha que indica que hay opciones adicionales.
+                -->
                 <div class="distribuir-dropdown">
                     <span>Distribuir</span>
                     <span class="dropdown-arrow">▼</span>
                 </div>
             </nav>
         </div>
+
+        <!--
+            ============================================
+            ALA DERECHA DEL ENCABEZADO
+            ============================================
+            Contiene:
+              - Campo de búsqueda con icono de lupa
+              - Botón "Iniciar sesión" (enlace a login.js)
+              - Botón "Descargar" (descarga el instalador)
+        -->
         <div class="header-right">
+
+            <!--
+                ============================================
+                BUSCADOR
+                ============================================
+                .search-box usa position: relative para posicionar el icono
+                de lupa de forma absoluta dentro del campo de búsqueda.
+                El input tiene un borde redondeado (border-radius: 20px) y
+                un ícono de lupa 🔍 posicionado a la izquierda.
+            -->
             <div class="search-box">
                 <span class="search-icon">🔍</span>
+                <!--
+                    .search-icon: Emoji de lupa posicionado absolutamente
+                    dentro del contenedor del input para simular un icono.
+                -->
                 <input type="text" placeholder="Buscar">
+                <!--
+                    <input type="text"> Campo de texto para que el usuario
+                    escriba su búsqueda. El atributo "placeholder" muestra
+                    el texto gris "Buscar" cuando el campo está vacío.
+                    Este campo está conectado a la función de búsqueda en script.js.
+                -->
             </div>
+
+            <!--
+                ============================================
+                BOTÓN DE INICIAR SESIÓN
+                ============================================
+                Es un enlace (<a>) que apunta a "login.js" (que contiene la
+                lógica de autenticación con Firebase). Se le aplican estilos
+                inline para alinear el texto y el icono.
+            -->
             <a href="login.js" class="btn btn-secondary" style="text-decoration: none; display: inline-flex; align-items: center; justify-content: center;">Iniciar sesión</a>
+
+            <!--
+                ============================================
+                BOTÓN DE DESCARGAR PRINCIPAL
+                ============================================
+                Es un botón (<button>) con id="downloadBtn" que es referenciado
+                por script.js para agregarle un evento de clic. Al hacer clic,
+                redirige al usuario para descargar EpicGamesInstaller.exe.
+            -->
             <button class="btn btn-primary" id="downloadBtn">Descargar</button>
         </div>
     </header>
 
-    <!-- Categories Nav -->
+    <!--
+        ============================================
+        SECCIÓN 2: NAVEGACIÓN DE CATEGORÍAS
+        ============================================
+        Barra horizontal con categorías de juegos que permite filtrar
+        el contenido. Cada enlace es una categoría como "Novedades",
+        "Los más vendidos", "Gratis", etc. El primer enlace tiene la
+        clase "active" que lo resalta visualmente (borde inferior azul).
+        La barra se puede desplazar horizontalmente en pantallas pequeñas.
+    -->
     <div class="categories-nav">
         <a href="#" class="category-link active">Novedades</a>
         <a href="#" class="category-link">Los más vendidos</a>
@@ -49,65 +230,187 @@
         <a href="#" class="category-link">Early Access</a>
     </div>
 
-    <!-- Hero Carousel -->
-  <section class="hero-section">
-    <div class="hero-carousel">
-        <div class="carousel-slide active" style="background-image: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);">
-            <div class="slide-background" style="background-image: url('imagenes/resident-evil.png');"></div>
-            <div class="carousel-content">
-                <span class="carousel-tag">Disponible ahora gratis</span>
-                <h1 class="carousel-title">Resident Evil Requiem</h1>
-                <p class="carousel-desc">Obtén gratis Resident Evil Requiem y consigue el traje de Grace Ashcroft en Fortnite como regalo.</p>
-                <div class="carousel-price free-tag">Gratis</div>
-                <div class="carousel-buttons">
-                    <button class="btn btn-primary btn-large free-download-btn">Obtener ahora</button>
-                    <button class="btn btn-secondary btn-large">Añadir a la lista de deseos</button>
+    <!--
+        ============================================
+        SECCIÓN 3: CARRUSEL HERO (Sección Principal)
+        ============================================
+        El carrusel es un banner giratorio que muestra promociones destacadas.
+        Funcionalidad:
+          - Muestra 3 slides (diapositivas) diferentes
+          - Cambia automáticamente cada 5 segundos (setInterval en script.js)
+          - El usuario puede hacer clic en los puntos (dots) para ir a un slide específico
+          - Cada slide tiene un fondo degradado y una imagen de juego
+        Estructura de cada slide:
+          - fondo con imagen del juego (slide-background)
+          - contenido superpuesto (tag, título, descripción, precio, botones)
+          - navegación con puntos (carousel-nav)
+    -->
+    <section class="hero-section">
+        <div class="hero-carousel">
+
+            <!--
+                ============================================
+                SLIDE 1: Resident Evil Requiem (Juego Destacado)
+                ============================================
+                - Fondo con degradado azul oscuro
+                - Imagen de fondo: imagenes/resident-evil.png
+                - Tag: "Disponible ahora gratis"
+                - Título: "Resident Evil Requiem"
+                - Descripción promocionando el juego y un traje gratis en Fortnite
+                - Precio: "Gratis"
+                - Botones: "Obtener ahora" y "Añadir a la lista de deseos"
+                - Es el slide ACTIVO inicialmente (clase "active")
+            -->
+            <div class="carousel-slide active" style="background-image: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);">
+                <div class="slide-background" style="background-image: url('imagenes/resident-evil.png');"></div>
+                <!--
+                    .slide-background: Capa de imagen de fondo. Usa la propiedad
+                    CSS background-image para mostrar la imagen del juego.
+                    El degradado del slide se superpone encima.
+                -->
+                <div class="carousel-content">
+                    <!--
+                        .carousel-content: Contenedor del texto y botones.
+                        Se posiciona sobre la imagen con z-index mayor.
+                        Tiene un fondo degradado que va de negro a transparente
+                        para que el texto sea legible sobre cualquier imagen.
+                    -->
+                    <span class="carousel-tag">Disponible ahora gratis</span>
+                    <!--
+                        .carousel-tag: Etiqueta pequeña con fondo azul que indica
+                        el estado del juego (ej. "Gratis", "Oferta", etc.)
+                    -->
+                    <h1 class="carousel-title">Resident Evil Requiem</h1>
+                    <!--
+                        .carousel-title: Título grande del juego en el carrusel.
+                        Font-size: 48px en desktop, más pequeño en móvil.
+                    -->
+                    <p class="carousel-desc">Obtén gratis Resident Evil Requiem y consigue el traje de Grace Ashcroft en Fortnite como regalo.</p>
+                    <!--
+                        .carousel-desc: Descripción del juego. Color gris claro
+                        para contraste con el fondo oscuro.
+                    -->
+                    <div class="carousel-price free-tag">Gratis</div>
+                    <!--
+                        .carousel-price: Muestra el precio. Si es gratis, usa
+                        la clase "free-tag" que lo colorea en verde.
+                    -->
+                    <div class="carousel-buttons">
+                        <!--
+                            .carousel-buttons: Contenedor de botones del slide.
+                            Los botones tienen la clase "free-download-btn" que
+                            es referenciada en script.js para agregarles el
+                            evento de clic de descarga.
+                        -->
+                        <button class="btn btn-primary btn-large free-download-btn">Obtener ahora</button>
+                        <button class="btn btn-secondary btn-large">Añadir a la lista de deseos</button>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="carousel-slide" style="background-image: linear-gradient(135deg, #2d1b4e 0%, #1a0f2e 100%);">
-            <div class="slide-background" style="background-image: url('imagenes/fortnitehero.png');"></div>
-            <div class="carousel-content">
-                <span class="carousel-tag">Actualización</span>
-                <h1 class="carousel-title">Fortnite</h1>
-                <p class="carousel-desc">No te pierdas las últimas novedades en Fortnite, del clásico Battle Royale a Blitz.</p>
-                <div class="carousel-price free-tag">Gratis</div>
-                <div class="carousel-buttons">
-                    <button class="btn btn-primary btn-large free-download-btn">Descarga Gratis</button>
+            <!--
+                ============================================
+                SLIDE 2: Fortnite
+                ============================================
+                Similar al slide 1 pero para Fortnite.
+                - Fondo con degradado púrpura oscuro
+                - Imagen de fondo: imagenes/fortnitehero.png
+                - Tag: "Actualización"
+                - Solo tiene un botón: "Descarga Gratis"
+            -->
+            <div class="carousel-slide" style="background-image: linear-gradient(135deg, #2d1b4e 0%, #1a0f2e 100%);">
+                <div class="slide-background" style="background-image: url('imagenes/fortnitehero.png');"></div>
+                <div class="carousel-content">
+                    <span class="carousel-tag">Actualización</span>
+                    <h1 class="carousel-title">Fortnite</h1>
+                    <p class="carousel-desc">No te pierdas las últimas novedades en Fortnite, del clásico Battle Royale a Blitz.</p>
+                    <div class="carousel-price free-tag">Gratis</div>
+                    <div class="carousel-buttons">
+                        <button class="btn btn-primary btn-large free-download-btn">Descarga Gratis</button>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="carousel-slide" style="background-image: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);">
-            <div class="slide-background" style="background-image: url('imagenes/GhostFace.png');"></div>
-            <div class="carousel-content">
-                <span class="carousel-tag">Colaboración</span>
-                <h1 class="carousel-title">Ghost Face en Fortnite</h1>
-                <p class="carousel-desc">No contestes al teléfono. ¡Ghost Face vuelve a Fortnite!</p>
-                <div class="carousel-price free-tag">Gratis</div>
-                <div class="carousel-buttons">
-                    <button class="btn btn-primary btn-large free-download-btn">Obtener ahora</button>
-                    <button class="btn btn-secondary btn-large">Añadir a la lista de deseos</button>
+            <!--
+                ============================================
+                SLIDE 3: Ghost Face en Fortnite
+                ============================================
+                Similar al slide 2 pero para el skin de Ghost Face.
+                - Fondo con degradado verde azulado
+                - Imagen de fondo: imagenes/GhostFace.png
+                - Tag: "Colaboración"
+            -->
+            <div class="carousel-slide" style="background-image: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);">
+                <div class="slide-background" style="background-image: url('imagenes/GhostFace.png');"></div>
+                <div class="carousel-content">
+                    <span class="carousel-tag">Colaboración</span>
+                    <h1 class="carousel-title">Ghost Face en Fortnite</h1>
+                    <p class="carousel-desc">No contestes al teléfono. ¡Ghost Face vuelve a Fortnite!</p>
+                    <div class="carousel-price free-tag">Gratis</div>
+                    <div class="carousel-buttons">
+                        <button class="btn btn-primary btn-large free-download-btn">Obtener ahora</button>
+                        <button class="btn btn-secondary btn-large">Añadir a la lista de deseos</button>
+                    </div>
                 </div>
             </div>
-        </div>
-        
-        <div class="carousel-nav">
-            <div class="carousel-dot active" onclick="goToSlide(0)"></div>
-            <div class="carousel-dot" onclick="goToSlide(1)"></div>
-            <div class="carousel-dot" onclick="goToSlide(2)"></div>
-        </div>
-    </div>
-</section>
 
-    <!-- Main Content -->
+            <!--
+                ============================================
+                NAVEGACIÓN DEL CARRUSEL (Puntos/Dots)
+                ============================================
+                Tres puntos circulares que indican:
+                  - Cuántos slides hay en total
+                  - Cuál slide está activo actualmente
+                Cada punto tiene un onclick="goToSlide(X)" que llama a
+                la función JavaScript goToSlide() pasando el índice del slide.
+                El primer punto tiene la clase "active" (punto blanco).
+            -->
+            <div class="carousel-nav">
+                <div class="carousel-dot active" onclick="goToSlide(0)"></div>
+                <div class="carousel-dot" onclick="goToSlide(1)"></div>
+                <div class="carousel-dot" onclick="goToSlide(2)"></div>
+            </div>
+        </div>
+    </section>
+
+    <!--
+        ============================================
+        SECCIÓN 4: CONTENIDO PRINCIPAL (Main Container)
+        ============================================
+        Contenedor principal que usa CSS Grid para crear un layout de dos columnas:
+          - Columna izquierda (240px): Barra lateral con filtros
+          - Columna derecha (1fr): Contenido de juegos
+        Se mantiene centrado con margin: 0 auto y tiene un máximo de 1600px de ancho.
+    -->
     <div class="main-container">
-        <!-- Sidebar -->
+
+        <!--
+            ============================================
+            BARRA LATERAL (SIDEBAR) - FILTROS
+            ============================================
+            Contiene tres secciones de filtros que permiten al usuario
+            navegar por los juegos:
+              1. Género (Acción, Aventura, RPG, etc.)
+              2. Características (Cooperativo, Multijugador, etc.)
+              3. Plataforma (Windows, macOS)
+            Cada filtro muestra un número entre paréntesis que indica
+            cuántos juegos coinciden con esa categoría.
+            En pantallas tablets y móviles, la sidebar se oculta (display: none).
+        -->
         <aside class="sidebar">
+
+            <!-- FILTRO DE GÉNERO -->
             <div class="filter-section">
                 <h3 class="filter-title">Género</h3>
+                <!--
+                    .filter-title: Título de la sección de filtro, en mayúsculas
+                    y con color gris secundario.
+                -->
                 <ul class="filter-list">
+                    <!--
+                        .filter-list: Lista sin viñetas (list-style: none en CSS).
+                        Cada <li> contiene un enlace y un contador entre paréntesis.
+                    -->
                     <li><a href="#">Acción <span class="filter-count">1,234</span></a></li>
                     <li><a href="#">Aventura <span class="filter-count">892</span></a></li>
                     <li><a href="#">RPG <span class="filter-count">567</span></a></li>
@@ -116,7 +419,8 @@
                     <li><a href="#">Carreras <span class="filter-count">189</span></a></li>
                 </ul>
             </div>
-            
+
+            <!-- FILTRO DE CARACTERÍSTICAS -->
             <div class="filter-section">
                 <h3 class="filter-title">Características</h3>
                 <ul class="filter-list">
@@ -126,7 +430,8 @@
                     <li><a href="#">Mundo abierto <span class="filter-count">234</span></a></li>
                 </ul>
             </div>
-            
+
+            <!-- FILTRO DE PLATAFORMA -->
             <div class="filter-section">
                 <h3 class="filter-title">Plataforma</h3>
                 <ul class="filter-list">
@@ -136,37 +441,96 @@
             </div>
         </aside>
 
-        <!-- Content -->
+        <!--
+            ============================================
+            CONTENIDO PRINCIPAL (MAIN)
+            ============================================
+            Contiene tres secciones de juegos, cada una con:
+              - Un encabezado con título y enlace "Ver todo"
+              - Una cuadrícula (.games-grid) de tarjetas de juegos
+            Estas cuadrículas son llenadas dinámicamente por JavaScript
+            mediante la función renderGames() que lee gamesData de script.js.
+        -->
         <main>
-            <!-- Juegos destacados -->
+
+            <!--
+                ============================================
+                SECCIÓN: JUEGOS DESTACADOS
+                ============================================
+                Muestra los juegos más populares/recomendados.
+                El contenedor tiene id="featured-games" que es referenciado
+                por script.js para inyectar las tarjetas de juego dinámicamente.
+            -->
             <section class="content-section">
                 <div class="section-header">
                     <h2 class="section-title">Juegos destacados</h2>
                     <a href="#" class="view-all">Ver todo →</a>
                 </div>
                 <div class="games-grid" id="featured-games"></div>
+                <!--
+                    Los juegos destacados se definen en script.js como:
+                    - Black Myth: Wukong
+                    - Elden Ring
+                    - Cyberpunk 2077
+                    - Hogwarts Legacy
+                    - Baldur's Gate 3
+                -->
             </section>
 
-            <!-- Ofertas especiales -->
+            <!--
+                ============================================
+                SECCIÓN: OFERTAS ESPECIALES
+                ============================================
+                Muestra juegos en oferta o en promoción.
+                El contenedor tiene id="sale-games".
+            -->
             <section class="content-section">
                 <div class="section-header">
                     <h2 class="section-title">Ofertas especiales</h2>
                     <a href="#" class="view-all">Ver todo →</a>
                 </div>
                 <div class="games-grid" id="sale-games"></div>
+                <!--
+                    Los juegos en oferta se definen en script.js como:
+                    - Red Dead Redemption 2
+                    - The Witcher 3
+                    - GTA V
+                    - Assassin's Creed Valhalla
+                -->
             </section>
 
-            <!-- Gratis esta semana -->
+            <!--
+                ============================================
+                SECCIÓN: GRATIS ESTA SEMANA
+                ============================================
+                Muestra juegos gratuitos disponibles.
+                El contenedor tiene id="free-games".
+            -->
             <section class="content-section">
                 <div class="section-header">
                     <h2 class="section-title">Gratis esta semana</h2>
                     <a href="#" class="view-all">Ver todo →</a>
                 </div>
                 <div class="games-grid" id="free-games"></div>
+                <!--
+                    Los juegos gratuitos se definen en script.js como:
+                    - Fortnite
+                    - Rocket League
+                    - Genshin Impact
+                    - Apex Legends
+                -->
             </section>
         </main>
     </div>
 
+    <!--
+        ============================================
+        SCRIPT PRINCIPAL
+        ============================================
+        El archivo script.js se incluye al final del <body> para asegurar
+        que todo el HTML se haya cargado antes de que el JavaScript
+        intente manipular el DOM (el árbol de elementos del documento).
+    -->
     <script src="script.js"></script>
 </body>
 </html>

@@ -1,9 +1,50 @@
+/*
+══════════════════════════════════════════════════════════════════════════════
+  ARCHIVO: styles.css
+  DESCRICIÓN: Hoja de estilos principal del sitio web (Clon Epic Games Store)
+  PROPÓSITO: Define toda la apariencia visual del sitio, incluyendo:
+    - Tema oscuro (dark mode) con variables CSS
+    - Layout con CSS Grid y Flexbox
+    - Estilos para el carrusel, tarjetas de juegos, botones
+    - Diseño responsive para tablets y móviles
+    - Animaciones y transiciones
+══════════════════════════════════════════════════════════════════════════════
+*/
+
+/*
+  ============================================
+  RESETEO GLOBAL (RESET)
+  ============================================
+  Elimina los márgenes y rellenos por defecto del navegador y establece
+  que todos los elementos usen el modelo de caja border-box, lo que
+  significa que el padding y el border se incluyen dentro del ancho
+  total del elemento (en lugar de sumarse a él).
+*/
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/*
+  ============================================
+  VARIABLES CSS (CUSTOM PROPERTIES)
+  ============================================
+  :root define las variables que se pueden reutilizar en todo el CSS.
+  Esto facilita el mantenimiento: si quieres cambiar el color principal,
+  solo cambias la variable aquí en vez de buscar cada uso.
+
+  Paleta de colores (Tema Oscuro):
+    - --bg-primary:       Fondo principal de la página (negro muy oscuro)
+    - --bg-secondary:     Fondo de secciones como el header (gris oscuro)
+    - --bg-card:          Fondo de las tarjetas de juegos (gris medio)
+    - --text-primary:     Color de texto principal (blanco)
+    - --text-secondary:   Color de texto secundario (gris claro)
+    - --accent-blue:      Azul brillante (color principal de acción)
+    - --accent-green:     Verde (para precios gratis y descargas)
+    - --hover-bg:         Fondo al pasar el ratón por encima
+    - --border-color:     Color de bordes (gris)
+*/
 :root {
     --bg-primary: #121212;
     --bg-secondary: #1a1a1a;
@@ -17,6 +58,17 @@
     --border-color: #333333;
 }
 
+/*
+  ============================================
+  ESTILOS GENERALES DEL CUERPO
+  ============================================
+  body: Define la fuente tipográfica, color de fondo y color de texto
+  para todo el documento.
+  - font-family: Usa fuentes del sistema (Apple, Windows) para que se
+    vea nativo en cada plataforma.
+  - background-color: Usa la variable del fondo oscuro.
+  - line-height: 1.6 para que el texto sea legible (más espaciado).
+*/
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     background-color: var(--bg-primary);
@@ -24,7 +76,26 @@ body {
     line-height: 1.6;
 }
 
-/* Header */
+
+/*
+  ═══════════════════════════════════════════
+  SECCIÓN: ENCABEZADO (HEADER)
+  ═══════════════════════════════════════════
+  El header es la barra superior fija (sticky) que permanece visible
+  incluso cuando el usuario hace scroll hacia abajo.
+*/
+
+/*
+  .header: Contenedor principal del encabezado.
+  - background-color: Gris oscuro (bg-secondary)
+  - height: 64px de alto
+  - display: flex: Usa flexbox para distribuir contenido horizontalmente
+  - justify-content: space-between: Empuja el contenido izquierdo a la
+    izquierda y el derecho a la derecha
+  - position: sticky + top: 0: Se queda fijo en la parte superior
+  - z-index: 1000: Está por encima de todos los demás elementos
+  - border-bottom: Línea sutil gris en la parte inferior
+*/
 .header {
     background-color: var(--bg-secondary);
     padding: 0 24px;
@@ -38,18 +109,31 @@ body {
     border-bottom: 1px solid var(--border-color);
 }
 
+/*
+  .header-left: Contenedor del lado izquierdo del header.
+  Usa flexbox para alinear el logo y la navegación con un gap de 32px.
+*/
 .header-left {
     display: flex;
     align-items: center;
     gap: 32px;
 }
 
+/*
+  .logo-section: Contenedor del logo y texto de la tienda.
+  Alinea verticalmente los elementos con gap de 24px.
+*/
 .logo-section {
     display: flex;
     align-items: center;
     gap: 24px;
 }
 
+/*
+  .epic-logo: Contenedor del icono de Epic Games.
+  display: flex alinea la imagen y la flecha horizontalmente.
+  cursor: pointer indica que es interactivo.
+*/
 .epic-logo {
     display: flex;
     align-items: center;
@@ -57,17 +141,31 @@ body {
     cursor: pointer;
 }
 
+/*
+  .epic-icon: Imagen del logo de Epic Games.
+  Se fija la altura en 28px y el ancho se ajusta automáticamente
+  para mantener la proporción de la imagen.
+*/
 .epic-icon {
     height: 28px;
     width: auto;
 }
 
+/*
+  .dropdown-arrow: Flecha ▼ que indica un menú desplegable.
+  Se muestra en gris claro y un poco más pequeña que el texto.
+*/
 .dropdown-arrow {
     font-size: 10px;
     color: var(--text-secondary);
     margin-top: 2px;
 }
 
+/*
+  .store-text: Texto "STORE" del logo.
+  Gran tamaño, en negrita, con ligero espaciado entre letras
+  (letter-spacing) para un aspecto más limpio.
+*/
 .store-text {
     font-size: 18px;
     font-weight: bold;
@@ -75,12 +173,21 @@ body {
     letter-spacing: 1px;
 }
 
+/*
+  .top-nav: Menú de navegación del lado derecho del header.
+  Alinea los enlaces horizontalmente con gap de 24px.
+*/
 .top-nav {
     display: flex;
     align-items: center;
     gap: 24px;
 }
 
+/*
+  .top-nav a: Estilos de los enlaces del menú superior.
+  Color gris, sin subrayado, con transición suave al cambiar de color
+  cuando el usuario pasa el ratón por encima.
+*/
 .top-nav a {
     color: var(--text-secondary);
     text-decoration: none;
@@ -92,6 +199,10 @@ body {
     color: var(--text-primary);
 }
 
+/*
+  .distribuir-dropdown: Contenedor de "Distribuir" en el menú.
+  Funciona como un botón desplegable con la flecha indicadora.
+*/
 .distribuir-dropdown {
     display: flex;
     align-items: center;
@@ -106,16 +217,39 @@ body {
     color: var(--text-primary);
 }
 
+/*
+  .header-right: Contenedor del lado derecho del header.
+  Alinea el buscador, el botón de login y el botón de descarga.
+*/
 .header-right {
     display: flex;
     align-items: center;
     gap: 16px;
 }
 
+/*
+  ═══════════════════════════════════════════
+  SECCIÓN: BUSCADOR
+  ═══════════════════════════════════════════
+*/
+
+/*
+  .search-box: Contenedor posicional relativo del campo de búsqueda.
+  Es "relative" porque el icono de lupa está posicionado "absolute"
+  dentro de él.
+*/
 .search-box {
     position: relative;
 }
 
+/*
+  .search-box input: Campo de texto del buscador.
+  - Fondo negro oscuro para coincidir con el tema
+  - Borde gris que se vuelve azul cuando tiene el foco
+  - Bordes redondeados (20px) para un aspecto tipo "pill"
+  - Padding para dar espacio interno
+  - El padding-left es mayor (36px) para dejar espacio para el icono
+*/
 .search-box input {
     background-color: var(--bg-primary);
     border: 1px solid var(--border-color);
@@ -127,10 +261,19 @@ body {
     transition: border-color 0.2s;
 }
 
+/*
+  .search-box input:focus: Cuando el usuario hace clic en el campo
+  y el cursor parpadea dentro, el borde se vuelve azul (accent-blue)
+  para indicar que el campo está activo.
+*/
 .search-box input:focus {
     border-color: var(--accent-blue);
 }
 
+/*
+  .search-icon: Icono de lupa (🔍) posicionado dentro del input.
+  Se posiciona absolutamente a la izquierda y centrada verticalmente.
+*/
 .search-icon {
     position: absolute;
     left: 12px;
@@ -139,6 +282,22 @@ body {
     color: var(--text-secondary);
 }
 
+
+/*
+  ═══════════════════════════════════════════
+  SECCIÓN: BOTONES
+  ═══════════════════════════════════════════
+*/
+
+/*
+  .btn: Estilo base para todos los botones.
+  - Padding para espacio interno
+  - border-radius: 4px para bordes ligeramente redondeados
+  - Sin borde (border: none)
+  - cursor: pointer para indicar interactividad
+  - font-weight: 600 (semi-bold) para texto en negrita
+  - transition: Suaviza todos los cambios de estilo
+*/
 .btn {
     padding: 8px 16px;
     border-radius: 4px;
@@ -149,6 +308,11 @@ body {
     transition: all 0.2s;
 }
 
+/*
+  .btn-secondary: Botón secundario (outline).
+  Fondo transparente con borde gris. Al pasar el ratón, el fondo
+  se vuelve gris más claro (hover-bg).
+*/
 .btn-secondary {
     background-color: transparent;
     color: var(--text-primary);
@@ -159,6 +323,10 @@ body {
     background-color: var(--hover-bg);
 }
 
+/*
+  .btn-primary: Botón principal (sólido azul).
+  Fondo azul brillante. Al pasar el ratón, se oscurece.
+*/
 .btn-primary {
     background-color: var(--accent-blue);
     color: white;
@@ -168,7 +336,22 @@ body {
     background-color: #005bb5;
 }
 
-/* Categories Nav */
+
+/*
+  ═══════════════════════════════════════════
+  SECCIÓN: NAVEGACIÓN DE CATEGORÍAS
+  ═══════════════════════════════════════════
+*/
+
+/*
+  .categories-nav: Barra horizontal con categorías de juegos.
+  - display: flex para alinear en línea
+  - gap: 24px entre cada categoría
+  - background-color: Gris oscuro
+  - overflow-x: auto: Permite desplazamiento horizontal si las
+    categorías exceden el ancho de la pantalla
+  - scrollbar-width: none: Oculta la barra de scroll en Firefox
+*/
 .categories-nav {
     display: flex;
     gap: 24px;
@@ -179,10 +362,21 @@ body {
     scrollbar-width: none;
 }
 
+/*
+  .categories-nav::-webkit-scrollbar: Oculta la barra de scroll
+  en navegadores basados en Chromium (Chrome, Edge, etc.).
+*/
 .categories-nav::-webkit-scrollbar {
     display: none;
 }
 
+/*
+  .category-link: Cada enlace de categoría.
+  - Color gris, sin subrayado
+  - border-bottom: 2px transparente que se vuelve azul cuando
+    la categoría está activa (clase "active") o al pasar el ratón
+  - white-space: nowrap para evitar que el texto se divida en dos líneas
+*/
 .category-link {
     color: var(--text-secondary);
     text-decoration: none;
@@ -200,13 +394,35 @@ body {
     border-bottom-color: var(--accent-blue);
 }
 
-/* Hero Carousel */
+
+/*
+  ═══════════════════════════════════════════
+  SECCIÓN: CARRUSEL HERO
+  ═══════════════════════════════════════════
+  El carrusel es el banner principal que muestra los juegos destacados.
+  Funciona con posicionamiento absoluto para superponer las diapositivas.
+*/
+
+/*
+  .hero-section: Sección contenedora del carrusel.
+  - padding: Espacio alrededor
+  - max-width: Limita el ancho máximo a 1600px
+  - margin: 0 auto: Centra el contenedor horizontalmente
+*/
 .hero-section {
     padding: 24px;
     max-width: 1600px;
     margin: 0 auto;
 }
 
+/*
+  .hero-carousel: Contenedor del carrusel.
+  - position: relative: Permite que los hijos se posicionen absolutamente
+  - height: 500px de alto fijo
+  - border-radius: 12px para bordes redondeados
+  - overflow: hidden: Oculta cualquier cosa que exceda los bordes redondeados
+  - background: Degradado de fondo como respaldo si no carga la imagen
+*/
 .hero-carousel {
     position: relative;
     height: 500px;
@@ -215,6 +431,15 @@ body {
     background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
 }
 
+/*
+  .carousel-slide: Cada diapositiva del carrusel.
+  - position: absolute: Se superponen todas en el mismo lugar
+  - width/height: 100% para llenar el contenedor
+  - display: flex + align-items: flex-end: El contenido se alinea
+    abajo de la imagen
+  - opacity: 0 por defecto (invisible)
+  - transition: opacity 0.5s para transición suave al cambiar slides
+*/
 .carousel-slide {
     position: absolute;
     width: 100%;
@@ -228,10 +453,21 @@ body {
     transition: opacity 0.5s;
 }
 
+/*
+  .carousel-slide.active: La diapositiva actualmente visible.
+  Tiene opacity: 1 para ser completamente visible.
+  La transición de opacity hace que el cambio entre slides sea suave.
+*/
 .carousel-slide.active {
     opacity: 1;
 }
 
+/*
+  .carousel-slide::before: Pseudoelemento que crea una superposición
+  oscura sobre la imagen.
+  - Degradado de negro (0%) a negro semitransparente (50%) a transparente (100%)
+  - Esto asegura que el texto sea legible sobre cualquier imagen de fondo
+*/
 .carousel-slide::before {
     content: '';
     position: absolute;
@@ -242,12 +478,21 @@ body {
     background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.3) 50%, transparent 100%);
 }
 
+/*
+  .carousel-content: Contenedor del texto y botones del slide.
+  - position: relative + z-index: 2 para estar por encima del pseudoelemento ::before
+  - max-width: 600px para que el texto no sea demasiado largo
+*/
 .carousel-content {
     position: relative;
     z-index: 2;
     max-width: 600px;
 }
 
+/*
+  .carousel-tag: Etiqueta de estado del juego (ej. "Gratis", "Oferta").
+  Fondo azul, texto blanco, bordes redondeados, en minúsculas.
+*/
 .carousel-tag {
     display: inline-block;
     background-color: var(--accent-blue);
@@ -260,6 +505,10 @@ body {
     margin-bottom: 16px;
 }
 
+/*
+  .carousel-title: Título grande del juego en el carrusel.
+  Font-size: 48px (desktop), en negrita, con línea de 1.2 para compactitud.
+*/
 .carousel-title {
     font-size: 48px;
     font-weight: bold;
@@ -267,37 +516,62 @@ body {
     line-height: 1.2;
 }
 
+/*
+  .carousel-desc: Descripción del juego.
+  Color gris claro, tamaño 18px, margen inferior para separación.
+*/
 .carousel-desc {
     font-size: 18px;
     color: var(--text-secondary);
     margin-bottom: 24px;
 }
 
+/*
+  .carousel-price: Precio mostrado en el carrusel.
+  Grande y en negrita para destacar.
+*/
 .carousel-price {
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 24px;
 }
 
+/*
+  .carousel-buttons: Contenedor de los botones del slide.
+  display: flex con gap de 12px para que los botones estén juntos.
+*/
 .carousel-buttons {
     display: flex;
     gap: 12px;
 }
 
+/*
+  .btn-large: Versión más grande del botón para el carrusel.
+  Padding y fuente más grandes.
+*/
 .btn-large {
     padding: 12px 24px;
     font-size: 16px;
 }
 
+/*
+  .carousel-nav: Contenedor de los puntos de navegación.
+  Posicionado en la esquina inferior derecha del carrusel.
+*/
 .carousel-nav {
     position: absolute;
     bottom: 24px;
     right: 48px;
     display: flex;
     gap: 8px;
-    z-index: 3;
+    z-index: 3; /* Por encima de todo en el carrusel */
 }
 
+/*
+  .carousel-dot: Cada punto de navegación del carrusel.
+  - Círculos con opacity baja que indican la posición
+  - Al activarse (clase "active"), se vuelven blancos
+*/
 .carousel-dot {
     width: 12px;
     height: 12px;
@@ -311,7 +585,22 @@ body {
     background-color: white;
 }
 
-/* Main Content */
+
+/*
+  ═══════════════════════════════════════════
+  SECCIÓN: CONTENIDO PRINCIPAL (GRID)
+  ═══════════════════════════════════════════
+*/
+
+/*
+  .main-container: Contenedor principal que divide la página en dos columnas.
+  Usa CSS Grid:
+    - grid-template-columns: 240px 1fr → La sidebar es de 240px y el
+      contenido ocupa el espacio restante (1fr = "una fracción")
+    - gap: 32px entre las columnas
+    - margin: 0 auto para centrar
+    - padding para espacio exterior
+*/
 .main-container {
     max-width: 1600px;
     margin: 0 auto;
@@ -321,17 +610,37 @@ body {
     gap: 32px;
 }
 
-/* Sidebar */
+
+/*
+  ═══════════════════════════════════════════
+  SECCIÓN: BARRA LATERAL (SIDEBAR) CON FILTROS
+  ═══════════════════════════════════════════
+*/
+
+/*
+  .sidebar: Barra lateral de filtros.
+  - position: sticky + top: 88px: Se queda fija al hacer scroll,
+    pero comenzando 88px desde arriba (debajo del header)
+  - height: fit-content: Se ajusta al contenido
+*/
 .sidebar {
     position: sticky;
     top: 88px;
     height: fit-content;
 }
 
+/*
+  .filter-section: Cada bloque de filtro (Género, Características, Plataforma).
+  Tiene un margen inferior de 32px para separarse del siguiente.
+*/
 .filter-section {
     margin-bottom: 32px;
 }
 
+/*
+  .filter-title: Título de cada sección de filtro.
+  En mayúsculas, gris, con espaciado entre letras.
+*/
 .filter-title {
     font-size: 14px;
     font-weight: bold;
@@ -341,6 +650,9 @@ body {
     letter-spacing: 0.5px;
 }
 
+/*
+  .filter-list: Lista de opciones de filtro sin viñetas.
+*/
 .filter-list {
     list-style: none;
 }
@@ -349,6 +661,12 @@ body {
     margin-bottom: 8px;
 }
 
+/*
+  .filter-list a: Cada enlace de filtro.
+  - display: flex para que el texto y el contador se distribuyan
+    a los extremos (justify-content: space-between)
+  - Color gris que se vuelve blanco al pasar el ratón
+*/
 .filter-list a {
     color: var(--text-secondary);
     text-decoration: none;
@@ -364,6 +682,10 @@ body {
     color: var(--text-primary);
 }
 
+/*
+  .filter-count: Número entre paréntesis que muestra cuántos juegos
+  coinciden con esa categoría. Tiene fondo oscuro y bordes redondeados.
+*/
 .filter-count {
     background-color: var(--bg-card);
     padding: 2px 8px;
@@ -371,11 +693,26 @@ body {
     font-size: 12px;
 }
 
-/* Content Grid */
+
+/*
+  ═══════════════════════════════════════════
+  SECCIÓN: CUADRÍCULA DE JUEGOS (GAMES GRID)
+  ═══════════════════════════════════════════
+*/
+
+/*
+  .content-section: Cada sección de juegos (destacados, ofertas, gratis).
+  Tiene un margen inferior de 48px para separación vertical.
+*/
 .content-section {
     margin-bottom: 48px;
 }
 
+/*
+  .section-header: Encabezado de cada sección (título + "Ver todo").
+  Usa flexbox para separar el título a la izquierda y el enlace
+  a la derecha.
+*/
 .section-header {
     display: flex;
     justify-content: space-between;
@@ -383,11 +720,18 @@ body {
     margin-bottom: 24px;
 }
 
+/*
+  .section-title: Título de la sección de juegos.
+  En negrita, 20px.
+*/
 .section-title {
     font-size: 20px;
     font-weight: bold;
 }
 
+/*
+  .view-all: Enlace "Ver todo →" que lleva a una página de catálogo completo.
+*/
 .view-all {
     color: var(--text-secondary);
     text-decoration: none;
@@ -401,12 +745,36 @@ body {
     color: var(--text-primary);
 }
 
+/*
+  .games-grid: La cuadrícula que contiene las tarjetas de juegos.
+  - grid-template-columns: repeat(auto-fill, minmax(200px, 1fr))
+    Esto crea columnas automáticas: cada tarjeta ocupa al menos 200px
+    y hasta 1fracción del espacio disponible.
+    Si hay espacio para 4 columnas → las crea, si solo hay para 2 → las crea.
+  - gap: 24px entre tarjetas
+*/
 .games-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 24px;
 }
 
+/*
+  ============================================
+  SECCIÓN: TARJETAS DE JUEGOS (GAME CARD)
+  ============================================
+  Cada tarjeta muestra un juego con su imagen, título, desarrollador y precio.
+*/
+
+/*
+  .game-card: Tarjeta individual de un juego.
+  - Fondo oscuro (bg-card)
+  - border-radius: 8px para bordes redondeados
+  - overflow: hidden para que la imagen no se salga de los bordes redondeados
+  - cursor: pointer indica que es interactiva
+  - transition: transform y box-shadow para efectos suaves
+  - position: relative permite posicionar elementos hijos
+*/
 .game-card {
     background-color: var(--bg-card);
     border-radius: 8px;
@@ -416,15 +784,31 @@ body {
     position: relative;
 }
 
+/*
+  .game-card:hover: Efecto al pasar el ratón sobre una tarjeta.
+  - Se desplaza hacia arriba 4px (translateY(-4px))
+  - Agrega una sombra más profunda para un efecto "elevado"
+*/
 .game-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 8px 24px rgba(0,0,0,0.4);
 }
 
-/* ============================================
-   IMÁGENES DE JUEGOS - CORREGIDO
-   ============================================ */
+/*
+  ═══════════════════════════════════════════
+  SECCIÓN: IMÁGENES DE JUEGOS
+  ═══════════════════════════════════════════
+  Esta sección maneja cómo se muestran las imágenes de los juegos
+  dentro de las tarjetas. Hay un truco especial para la imagen
+  de Nintendo:
+*/
 
+/*
+  .game-image-container: Contenedor de la imagen del juego.
+  - aspect-ratio: 3/4 mantiene la proporción 3:4 (típica de cajas de juegos)
+  - overflow: hidden para que la imagen no se desborde
+  - Fondo gris oscuro como respaldo
+*/
 .game-image-container {
     width: 100%;
     aspect-ratio: 3/4;
@@ -433,6 +817,12 @@ body {
     position: relative;
 }
 
+/*
+  .game-image: Imagen del juego.
+  - width/height: 100% para llenar el contenedor
+  - object-fit: cover recorta la imagen para que llene sin distorsionarse
+  - transition: transform 0.3s para el efecto de zoom al hacer hover
+*/
 .game-image {
     width: 100%;
     height: 100%;
@@ -440,27 +830,51 @@ body {
     transition: transform 0.3s ease;
 }
 
-/* Cualquier imagen que NO sea nintendo.png cubre todo */
+/*
+  TRUCO CON IMAGENES:
+  El selector .game-image:not([src*="nintendo.png"]) aplica object-fit: cover
+  a todas las imágenes que NO sean nintendo.png. Esto significa que
+  la mayoría de las imágenes llenan completamente el contenedor.
+
+  El selector .game-image[src*="nintendo.png"] aplica un tratamiento
+  especial a la imagen de Nintendo (que probablemente es un logo):
+  - object-fit: contain (encaja la imagen completa sin recortar)
+  - padding: 20px para darle espacio
+  - Fondo con degradado rojo intenso (similar al branding de Nintendo)
+*/
 .game-image:not([src*="nintendo.png"]) {
     object-fit: cover;
 }
 
-/* Solo nintendo.png tiene fondo rojo y padding */
 .game-image[src*="nintendo.png"] {
     object-fit: contain;
     padding: 20px;
     background: linear-gradient(135deg, #e60012 0%, #8b0000 100%);
 }
 
-/* Hover efecto */
+/*
+  .game-card:hover .game-image: Al hacer hover sobre la tarjeta,
+  la imagen hace un zoom suave (scale(1.05)).
+*/
 .game-card:hover .game-image {
     transform: scale(1.05);
 }
 
+/*
+  .game-info: Contenedor de la información textual del juego.
+  Padding de 12px para espacio interno.
+*/
 .game-info {
     padding: 12px;
 }
 
+/*
+  .game-title: Título del juego.
+  - Font-size: 14px, negrita
+  - white-space: nowrap + overflow: hidden + text-overflow: ellipsis
+    Si el título es muy largo, se corta con "..." en lugar de
+    ocupar múltiples líneas.
+*/
 .game-title {
     font-size: 14px;
     font-weight: 600;
@@ -470,12 +884,20 @@ body {
     text-overflow: ellipsis;
 }
 
+/*
+  .game-developer: Nombre del desarrollador del juego.
+  Más pequeño (12px) y en gris secundario.
+*/
 .game-developer {
     font-size: 12px;
     color: var(--text-secondary);
     margin-bottom: 8px;
 }
 
+/*
+  .game-price-section: Contenedor del precio y cualquier badge de descuento.
+  Usa flexbox para alinear los elementos horizontalmente.
+*/
 .game-price-section {
     display: flex;
     align-items: center;
@@ -484,6 +906,10 @@ body {
     margin-bottom: 8px;
 }
 
+/*
+  .discount-badge: Badge que muestra el porcentaje de descuento.
+  Fondo azul, texto blanco, en negrita.
+*/
 .discount-badge {
     background-color: var(--discount-bg);
     color: white;
@@ -493,23 +919,47 @@ body {
     font-weight: bold;
 }
 
+/*
+  .original-price: Precio tachado antes del descuento.
+  Línea sobre el texto, color gris.
+*/
 .original-price {
     text-decoration: line-through;
     color: var(--text-secondary);
     font-size: 12px;
 }
 
+/*
+  .current-price: Precio actual del juego.
+  Grande y en negrita. Si es gratis (game.price === 0), usa la clase free-tag.
+*/
 .current-price {
     font-size: 14px;
     font-weight: bold;
 }
 
+/*
+  .free-tag: Clase para indicar que el precio es "Gratis".
+  Color verde (accent-green) para destacar que es gratuito.
+*/
 .free-tag {
     color: var(--accent-green);
     font-weight: bold;
 }
 
-/* Botón Descarga Gratis */
+/*
+  ============================================
+  SECCIÓN: BOTÓN "DESCARGA GRATIS" EN TARJETAS
+  ============================================
+*/
+
+/*
+  .btn-free-download: Botón verde que aparece en cada tarjeta de juego gratis.
+  - Ancho completo (width: 100%)
+  - Fondo verde, texto blanco, sin borde
+  - Texto en mayúsculas (text-transform: uppercase)
+  - Efecto hover con cambio de tono de verde
+*/
 .btn-free-download {
     width: 100%;
     margin-top: 8px;
@@ -529,97 +979,163 @@ body {
     background-color: #008f5a;
 }
 
-/* ============================================
-   RESPONSIVE - TABLET
-   ============================================ */
+
+/*
+  ═══════════════════════════════════════════
+  SECCIÓN: DISEÑO RESPONSIVE - TABLET
+  ═══════════════════════════════════════════
+  @media (max-width: 1024px): Se aplica cuando la pantalla es de 1024px
+  o menos (típicamente tablets).
+*/
 @media (max-width: 1024px) {
+    /*
+        El layout cambia de dos columnas a una sola.
+        La sidebar desaparece y el contenido ocupa todo el ancho.
+    */
     .main-container {
         grid-template-columns: 1fr;
     }
-    
+
+    /* La sidebar se oculta completamente en tablets */
     .sidebar {
         display: none;
     }
-    
+
+    /* El carrusel se hace más pequeño */
     .hero-carousel {
         height: 400px;
     }
-    
+
     .carousel-title {
         font-size: 32px;
     }
-    
+
+    /* La cuadrícula de juegos se reduce a 3 columnas */
     .games-grid {
         grid-template-columns: repeat(3, 1fr);
     }
 }
 
-/* ============================================
-   RESPONSIVE - MÓVIL
-   ============================================ */
+
+/*
+  ═══════════════════════════════════════════
+  SECCIÓN: DISEÑO RESPONSIVE - MÓVIL
+  ═══════════════════════════════════════════
+  @media (max-width: 768px): Se aplica cuando la pantalla es de 768px
+  o menos (típicamente teléfonos móviles).
+*/
 @media (max-width: 768px) {
+    /*
+        EL HEADER en móvil:
+        - Se hace más bajo (56px)
+        - El menú de navegación superior se oculta (top-nav: display: none)
+        - El buscador se encoge (140px)
+        - El logo se hace más pequeño
+    */
     .header {
         height: 56px;
         padding: 0 16px;
     }
-    
+
     .logo-section {
         gap: 12px;
     }
-    
+
     .store-text {
         font-size: 14px;
     }
-    
+
     .top-nav {
         display: none;
     }
-    
+
     .search-box input {
         width: 140px;
     }
-    
+
+    /*
+        EL CARRUSEL en móvil:
+        - Se hace más pequeño (300px)
+        - El contenido tiene menos padding
+        - Los títulos y descripciones se encojen
+    */
     .hero-carousel {
         height: 300px;
     }
-    
+
     .carousel-content {
         padding: 24px;
     }
-    
+
     .carousel-title {
         font-size: 24px;
     }
-    
+
     .carousel-desc {
         font-size: 14px;
     }
-    
+
+    /*
+        LA CUADRÍCULA en móvil:
+        - Solo 2 columnas para que quepan en pantalla
+        - Menor espacio entre tarjetas
+    */
     .games-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 16px;
     }
-    
+
     .epic-icon {
         height: 24px;
     }
-    
+
     .btn {
         padding: 6px 12px;
         font-size: 12px;
     }
 }
 
-/* Animations */
+
+/*
+  ═══════════════════════════════════════════
+  ANIMACIONES
+  ═══════════════════════════════════════════
+*/
+
+/*
+  @keyframes fadeIn: Definición de una animación de entrada.
+  - from: Elemento empieza con opacidad 0 y desplazado 20px hacia abajo
+  - to: Elemento termina con opacidad 1 y en su posición normal
+  Se aplica a las tarjetas de juego para que aparezcan con un efecto
+  suave de desvanecimiento.
+*/
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
+/*
+  .game-card: Cada tarjeta de juego tiene la animación fadeIn
+  que se ejecuta en 0.5 segundos (medio segundo) con una curva
+  ease-out (rápido al inicio, lento al final).
+*/
 .game-card {
     animation: fadeIn 0.5s ease-out;
 }
-/* Contenedor del Carrusel */
+
+/*
+  ═══════════════════════════════════════════
+  ESTILOS ADICIONALES DEL CARRUSEL (REDEFINICIONES)
+  ═══════════════════════════════════════════
+  Las siguientes reglas sobrescriben o complementan las definiciones
+  anteriores del carrusel con más detalle.
+*/
+
+/*
+  .hero-carousel: Reafirma las propiedades de posicionamiento.
+  Estas propiedades se definen nuevamente al final del archivo
+  para asegurar que prevalezcan sobre cualquier otra definición.
+*/
 .hero-carousel {
     position: relative;
     height: 500px;
@@ -627,7 +1143,12 @@ body {
     overflow: hidden;
 }
 
-/* El Slide (la capa que contiene todo) */
+/*
+  .carousel-slide: Definición explícita del estado oculto de cada slide.
+  - display: none por defecto (oculto)
+  - opacity: 0 (invisible)
+  - transition: 0.6s ease-in-out para transición suave
+*/
 .carousel-slide {
     position: absolute;
     top: 0;
@@ -639,13 +1160,22 @@ body {
     transition: opacity 0.6s ease-in-out;
 }
 
-/* El slide que está activo se muestra */
+/*
+  .carousel-slide.active: El slide activo se muestra.
+  display: block + opacity: 1 lo hacen visible.
+*/
 .carousel-slide.active {
     display: block;
     opacity: 1;
 }
 
-/* Capa de imagen (se encarga de mostrar la foto) */
+/*
+  .slide-background: Capa de imagen de fondo de cada slide.
+  - Posicionada absolutamente para que ocupe todo el slide
+  - background-size: cover para que la imagen cubra todo el espacio
+  - background-position: center center para centrar la imagen
+  - z-index: 1 para estar por debajo del contenido
+*/
 .slide-background {
     position: absolute;
     top: 0;
@@ -656,11 +1186,16 @@ body {
     background-position: center;
     z-index: 1;
     background-size: cover;
-    background-position: center center; /* Centra tanto horizontal como verticalmente */
+    background-position: center center;
 }
 
-
-/* Contenido (Texto y botones) */
+/*
+  .carousel-content (redefinición final):
+  Define el fondo degradado del contenido del carrusel.
+  El gradiente va de negro semitransparente a la derecha hacia transparente,
+  creando un efecto de profundidad donde el texto parece flotar sobre
+  la imagen.
+*/
 .carousel-content {
     position: relative;
     z-index: 2;
